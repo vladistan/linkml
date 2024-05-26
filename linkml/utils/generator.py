@@ -916,6 +916,14 @@ def shared_arguments(g: Type[Generator]) -> Callable[[Command], Command]:
         f.params.append(Argument(("yamlfile",), type=click.Path(exists=True, dir_okay=False)))
         f.params.append(
             Option(
+                ("--output",),
+                type=click.Path(dir_okay=False),
+                default=None,
+                help="Output file",
+            )
+        )
+        f.params.append(
+            Option(
                 ("--format", "-f"),
                 type=click.Choice(g.valid_formats),
                 default=g.valid_formats[0],
