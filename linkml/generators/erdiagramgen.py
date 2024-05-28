@@ -196,14 +196,14 @@ class ERDiagramGenerator(Generator):
                     if follow_references or sv.is_inlined(slot):
                         if rng not in visited:
                             stack.append((rng, depth + 1))
-
-        # Now Add upstream classes if needed
-        if include_upstream:
-            for sn in sv.all_slots():
-                slot = sv.schema.slots.get(sn)
-                if slot and slot.range in set(class_names):
-                    for cl in sv.all_classes():
-                        if slot.name in sv.get_class(cl).slots and cl not in visited:
+        for sn in sv.all_slots():
+            slot = sv.schema.slots.get(sn)
+            if slot and slot.range in set(class_names):
+                all_classes = sv.all_classes()
+                for cl in all_classes:
+                    cdef = sv.get_class(cl)
+                    if slot.name in cdef.slots:
+                        if cl not in visited:
                             self.add_upstream_class(cl, set(class_names), diagram)
         return self.serialize_diagram(diagram)
 
