@@ -1,0 +1,27 @@
+---
+site_name: "Core-Data Provenance (Lineage) Model"
+theme:
+  name: material
+  # palette:
+  #  scheme: slate
+  #  primary: cyan
+  features:
+    - content.tabs.link
+plugins:
+  - search
+  - mermaid2
+  - kroki:
+      ServerURL: https://kroki.admin.vivodyne.com
+      FileTypeOverrides:
+        mermaid: svg
+nav:
+  # - Home: home.md
+  - Index: index.md
+  - About: about.md
+site_url: https://docs.admin.vivodyne.com/vivodyne/prov/1.0
+repo_url: https://github.com/vivodyne/conductor
+
+watch:
+  - templates/docgen-templates
+
+docs_dir: ksink
