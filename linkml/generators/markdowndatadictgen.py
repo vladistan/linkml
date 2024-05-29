@@ -161,11 +161,9 @@ class MarkdownDataDictGen(Generator):
                 items.extend(self.describe_enum(en))
 
         items = [i for i in items if i is not None]
-        with open(output, "w", encoding="UTF-8") as out_file:
-            out = "\n".join(items) + "\n"
-            out = pad_heading(out)
-            out_file.write(out)
-            return out
+        out = "\n".join(items) + "\n"
+        out = pad_heading(out)
+        return out
 
     def local_class_diagram(self, cls):
         class_diagram = ClassDiagram()
@@ -614,18 +612,12 @@ def pad_heading(text: str) -> str:
 
 @shared_arguments(MarkdownDataDictGen)
 @click.command()
-@click.option("--dir", "-d", required=True, help="Output directory")
 @click.option("--classes", "-c", multiple=True, help="Class(es) to emit")
-@click.option("--map-fields", "-M", multiple=True, help="Map metamodel fields, e.g. slot=field")
-@click.option("--img", "-i", is_flag=True, help="Download YUML images to 'image' directory")
-@click.option("--index-file", "-I", help="Name of markdown file that holds index")
-@click.option("--noimages", is_flag=True, help="Do not (re-)generate images")
 @click.version_option(__version__, "-V", "--version")
-def cli(yamlfile, map_fields, dir, img, index_file, **kwargs):
+def cli(yamlfile, **kwargs):
     """Generate markdown documentation of a LinkML model"""
-    print('Hello')
     gen = MarkdownDataDictGen(yamlfile, **kwargs)
-    gen.serialize(directory=dir, image_dir=img, **kwargs)
+    print(gen.serialize(**kwargs))
 
 
 if __name__ == "__main__":
