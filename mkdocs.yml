@@ -1,0 +1,22 @@
+---
+site_name: "Person Info Model"
+theme:
+  name: material
+  palette:
+#    scheme: slate
+    primary: cyan
+  features:
+    - toc.integrate
+plugins:
+  - mermaid2
+  - kroki:
+      ServerURL: https://kroki.admin.vivodyne.com
+      FileTypeOverrides:
+        mermaid: svg
+site_url: https://schema.org/purl/personino
+repo_url: https://github.com/spongebob/bluebutton
+docs_dir: "tmp_gen"
+
+markdown_extensions:
+  - toc:
+      toc_depth: 3
