@@ -66,6 +66,7 @@ class MarkdownDataDictGen(Generator):
     uses_schemaloader = True
 
     # ObjectVars
+    anchor_style: str = "mkdocs"
     output: Optional[str] = None
     image_directory: Optional[str] = None
     classes: Set[ClassDefinitionName] = None
@@ -317,7 +318,7 @@ class MarkdownDataDictGen(Generator):
                 for dom in slot.domain_of:
                     items.append(
                         self.bullet(
-                            f" **{self.class_link(dom)}** "
+                            f" **{self.class_link(dom)}** : "
                             f"*{self.slot_link(slot, add_subset=False)}*{self.predicate_cardinality(slot)} "
                         )
                     )
@@ -376,7 +377,7 @@ class MarkdownDataDictGen(Generator):
         out = self.header(3, header_label)
 
         out += self.para(be(obj.description))
-        out = "\n".join([out, f"URI: [{curie}]({uri})", ""])
+        #out = "\n".join([out, f"URI: [{curie}]({uri})", ""])
         return out
 
     def class_hier(self, cls: ClassDefinition, level=0) -> str:
@@ -492,6 +493,13 @@ class MarkdownDataDictGen(Generator):
         @param add_subset: True means add any subset information that is available
         @return:
         """
+
+        def make_anchor(name: str) -> str:
+            if self.anchor_style == "mkdocs":
+                return name.lower()
+            else:
+                return camelcase(name)
+
         nl = "\n"
         if obj is None or not self.is_secondary_ref(obj.name):
             return self.bbin(obj)
@@ -500,13 +508,13 @@ class MarkdownDataDictGen(Generator):
             link_ref = f"types/{link_name}" if not self.no_types_dir else f"{link_name}"
         elif isinstance(obj, ClassDefinition):
             link_name = camelcase(obj.name)
-            link_ref = link_name.lower()
+            link_ref = make_anchor(link_name)
         elif isinstance(obj, EnumDefinition):
             link_name = camelcase(obj.name)
-            link_ref = link_name.lower()
+            link_ref = make_anchor(link_name)
         elif isinstance(obj, SubsetDefinition):
             link_name = camelcase(obj.name)
-            link_ref = camelcase(link_name)
+            link_ref = make_anchor(link_name)
         else:
             link_name = obj.name
             link_ref = link_name
@@ -613,6 +621,7 @@ def pad_heading(text: str) -> str:
 @shared_arguments(MarkdownDataDictGen)
 @click.command()
 @click.option("--classes", "-c", multiple=True, help="Class(es) to emit")
+@click.option("--anchor-style", type=click.Choice(['mkdocs', 'confluence'], case_sensitive=False), default='confluence', help="Choose anchor style: 'mkdocs' for lowercase markdown link anchors, 'confluence' to keep as is")
 @click.version_option(__version__, "-V", "--version")
 def cli(yamlfile, **kwargs):
     """Generate markdown documentation of a LinkML model"""
