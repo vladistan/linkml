@@ -1,0 +1,15 @@
+<ac:structured-macro ac:name="macro-diagram" ac:schema-version="1" data-layout="default" ac:local-id="7f792e2e-dad4-461e-b8de-bc51a2cd67f8">
+<ac:parameter ac:name="sourceType">MacroBody</ac:parameter>
+<ac:parameter ac:name="attachmentPageId"/>
+<ac:parameter ac:name="syntax">Mermaid</ac:parameter><ac:parameter ac:name="attachmentId"/>
+<ac:parameter ac:name="url"/>
+<ac:plain-text-body><![CDATA[classDiagram
+Entity <|-- Image
+Entity <|-- studyGroup
+Entity <|-- Customer
+Entity <|-- Endpoint
+Entity <|-- ImageFile
+Entity <|-- Project
+Entity <|-- Study
+Entity <|-- ImageMetadata]]>
+</ac:plain-text-body></ac:structured-macro><p/>
