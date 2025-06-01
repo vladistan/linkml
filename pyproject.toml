@@ -145,9 +145,6 @@ linkml-schema-fixer = "linkml.utils.schema_fixer:main"
 requires-poetry = ">=2.0"
 version = "0.0.0"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-
 [tool.poetry.requires-plugins]
 poetry-dynamic-versioning = ">=1.8.2"
 
@@ -155,6 +152,9 @@ poetry-dynamic-versioning = ">=1.8.2"
 enable = true
 vcs = "git"
 style = "pep440"
+
+[tool.poetry.dependencies]
+python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
 chardet = "*"
