@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples of use" href="../examples.html" /><link rel="prev" title="Deprecating elements while maintaining PURLs and other URIs" href="deprecating-elements.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Using ontology terms as values in data - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="using-ontology-terms-as-values-in-data">
-<h1>Using ontology terms as values in data<a class="headerlink" href="#using-ontology-terms-as-values-in-data" title="Link to this heading">¶</a></h1>
+<h1>Using ontology terms as values in data<a class="headerlink" href="#using-ontology-terms-as-values-in-data" title="Permalink to this heading">#</a></h1>
 <p>LinkML provides a flexible way of modeling data. LinkML allows for the optional use
 of <em>ontologies</em>, <em>vocabularies</em>, or <em>controlled vocabularies</em> to add semantics to
 datamodels, for example, by mapping classes or slots to external terms.</p>
@@ -360,7 +360,7 @@ the same way we would any other identifier or object. However, in some
 cases, this can lead to confusion about what the respective roles of
 the LinkML schema, data, or ontologies are.</p>
 <section id="motivating-example-associations-to-ontology-terms">
-<h2>Motivating Example: associations to ontology terms.<a class="headerlink" href="#motivating-example-associations-to-ontology-terms" title="Link to this heading">¶</a></h2>
+<h2>Motivating Example: associations to ontology terms.<a class="headerlink" href="#motivating-example-associations-to-ontology-terms" title="Permalink to this heading">#</a></h2>
 <p>Let’s say we want to model associations between genes and
 phenotypes. This is a standard use case for biological ontologies -
 creating <em>annotations</em> that associate some kind of entity with a descriptor.</p>
@@ -463,7 +463,7 @@ collection, like this:</p>
 </table>
 </div>
 <section id="simple-schema-for-pairwise-associations">
-<h3>Simple schema for pairwise associations<a class="headerlink" href="#simple-schema-for-pairwise-associations" title="Link to this heading">¶</a></h3>
+<h3>Simple schema for pairwise associations<a class="headerlink" href="#simple-schema-for-pairwise-associations" title="Permalink to this heading">#</a></h3>
 <p>The simplest possible data model that could work for this case is:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w"> </span><span class="nt">GenePhenotypeAssociation</span><span class="p">:</span>
@@ -555,7 +555,7 @@ rather than forcing the client to do an external lookup?</p>
 strictly speaking this is weaker than the previous regular expression pattern.</p>
 </section>
 <section id="adding-a-container">
-<h3>Adding a container<a class="headerlink" href="#adding-a-container" title="Link to this heading">¶</a></h3>
+<h3>Adding a container<a class="headerlink" href="#adding-a-container" title="Permalink to this heading">#</a></h3>
 <p>Let’s add a <em>container</em> class, to allow us to bundle lists of objects inside a single JSON or YAML document:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">Container</span><span class="p">:</span>
     <span class="n">tree_root</span><span class="p">:</span> <span class="n">true</span>
@@ -569,7 +569,7 @@ strictly speaking this is weaker than the previous regular expression pattern.</
       <span class="n">associations</span><span class="p">:</span>
         <span class="nb">range</span><span class="p">:</span> <span class="n">Association</span>
         <span class="n">inlined_as_list</span><span class="p">:</span> <span class="n">true</span>  <span class="c1">## not necessary as Association has no id</span>
-      
+
 </pre></div>
 </div>
 <p>Our container class allows genes, phenotypes, plus associations between them to be transmitted as a single YAML/JSON object/document.</p>
@@ -585,7 +585,7 @@ keys in a relational database):</p>
 </div>
 </section>
 <section id="example-of-separate-collections">
-<h3>Example of separate collections<a class="headerlink" href="#example-of-separate-collections" title="Link to this heading">¶</a></h3>
+<h3>Example of separate collections<a class="headerlink" href="#example-of-separate-collections" title="Permalink to this heading">#</a></h3>
 <p>We can optionally communicate information about the referenced entities:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">associations</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">gene</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NCBIGene:5189</span>
@@ -605,7 +605,7 @@ keys in a relational database):</p>
 </section>
 </section>
 <section id="representing-the-ontology-hierarchy-as-data">
-<h2>Representing the ontology hierarchy as data<a class="headerlink" href="#representing-the-ontology-hierarchy-as-data" title="Link to this heading">¶</a></h2>
+<h2>Representing the ontology hierarchy as data<a class="headerlink" href="#representing-the-ontology-hierarchy-as-data" title="Permalink to this heading">#</a></h2>
 <p>It’s common practice to separate the ontology representation from the data,
 but in some cases it may be useful to transmit everything using the same
 schema, sending both associations and ontology classificiation in one YAML/JSON blob.</p>
@@ -641,7 +641,7 @@ operations, etc.</p>
 is_a hierarchy and ontology hierarchy as data) is not be a cause
 for concern.</p>
 <section id="ontology-classes-may-be-linkml-instances">
-<h3>Ontology classes may be LinkML instances<a class="headerlink" href="#ontology-classes-may-be-linkml-instances" title="Link to this heading">¶</a></h3>
+<h3>Ontology classes may be LinkML instances<a class="headerlink" href="#ontology-classes-may-be-linkml-instances" title="Permalink to this heading">#</a></h3>
 <p>So far, so good. This should so far be familiar to people who have
 modeled this kind of ontological association in JSON-Schema, or
 relational databases.</p>
@@ -659,12 +659,12 @@ despite the name “class”. And instances in LinkML and instances in
 </section>
 </section>
 <section id="ontology-class-hierarchies-and-linkml-class-hierarchies-need-not-be-mirrored">
-<h2>Ontology class hierarchies and LinkML class hierarchies need not be mirrored<a class="headerlink" href="#ontology-class-hierarchies-and-linkml-class-hierarchies-need-not-be-mirrored" title="Link to this heading">¶</a></h2>
+<h2>Ontology class hierarchies and LinkML class hierarchies need not be mirrored<a class="headerlink" href="#ontology-class-hierarchies-and-linkml-class-hierarchies-need-not-be-mirrored" title="Permalink to this heading">#</a></h2>
 <p>Next we will look at a more advanced example. Here we will also
 talk about how what we are modeling is represented in RDF/OWL, so some
 knowledge of these frameworks helps here.</p>
 <section id="a-model-of-organisms-in-linkml">
-<h3>A model of organisms in LinkML<a class="headerlink" href="#a-model-of-organisms-in-linkml" title="Link to this heading">¶</a></h3>
+<h3>A model of organisms in LinkML<a class="headerlink" href="#a-model-of-organisms-in-linkml" title="Permalink to this heading">#</a></h3>
 <p>Consider a schema that models both individual people and organisms, as well as taxonomic concepts
 such as Homo sapiens or Vertebrate:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
@@ -763,7 +763,7 @@ us to constrain our data model to avoid instance data that is invalid or surpris
 Napoleon having a “species” value of “Vertebrate” or “HistoricHuman”).</p>
 </section>
 <section id="a-model-of-organisms-following-ontology-conventions">
-<h3>A model of organisms following ontology conventions<a class="headerlink" href="#a-model-of-organisms-following-ontology-conventions" title="Link to this heading">¶</a></h3>
+<h3>A model of organisms following ontology conventions<a class="headerlink" href="#a-model-of-organisms-following-ontology-conventions" title="Permalink to this heading">#</a></h3>
 <p>Consider how this is modeled in ontologies in OBO or clinical terminologies like SNOMED or NCIT.
 In these ontologies, there is neither a “individual organism” class nor classes for ranks like “species”.</p>
 <p>Instead there is just a hierarchy of organism OWL classes, increasingly refined:</p>
@@ -829,7 +829,7 @@ taxon node ID rather than any other taxon ID.</p>
 </div>
 </section>
 <section id="aligning-the-linkml-model-with-the-ontological-model">
-<h3>Aligning the LinkML model with the ontological model<a class="headerlink" href="#aligning-the-linkml-model-with-the-ontological-model" title="Link to this heading">¶</a></h3>
+<h3>Aligning the LinkML model with the ontological model<a class="headerlink" href="#aligning-the-linkml-model-with-the-ontological-model" title="Permalink to this heading">#</a></h3>
 <p>Note also the correspondence between the owl SubClassOf axiom and the ‘parent_concept` attribute in our LinkML model.
 These would correspond even further if we extended our model to other taxonomic ranks.</p>
 <p>We could map these using <code class="docutils literal notranslate"><span class="pre">slot_uri</span></code>:</p>
@@ -882,7 +882,7 @@ confusing. Under OWL2 Description Logic semantics, we have introduced
 approach is quite common in knowledge bases such as Wikidata.</p>
 </section>
 <section id="separate-models">
-<h3>Separate models<a class="headerlink" href="#separate-models" title="Link to this heading">¶</a></h3>
+<h3>Separate models<a class="headerlink" href="#separate-models" title="Permalink to this heading">#</a></h3>
 <p>We can imagine people getting confused, and making incorrect inferences
 such as the following:</p>
 <ol class="arabic simple">
@@ -896,7 +896,7 @@ either via the LinkML or via the RDF/OWL (either punning model or metaclass).</p
 </section>
 </section>
 <section id="when-should-hierarchies-be-mirrored">
-<h2>When should hierarchies be mirrored?<a class="headerlink" href="#when-should-hierarchies-be-mirrored" title="Link to this heading">¶</a></h2>
+<h2>When should hierarchies be mirrored?<a class="headerlink" href="#when-should-hierarchies-be-mirrored" title="Permalink to this heading">#</a></h2>
 <p>It should be clear that LinkML (and more generally, schema and shape
 frameworks such as JSON-Schema, SHACL, and so on) and formal OWL
 modeling are distinct. By keeping these separate, we avoid problems.</p>
@@ -1026,9 +1026,9 @@ guide.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

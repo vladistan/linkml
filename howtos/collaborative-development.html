@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How to recognize and work with different structural forms" href="recognize-structural-forms.html" /><link rel="prev" title="LinkML Project Cookiecutter" href="linkml-project-cookiecutter.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>How to run a collaborative data modeling project - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="how-to-run-a-collaborative-data-modeling-project">
-<h1>How to run a collaborative data modeling project<a class="headerlink" href="#how-to-run-a-collaborative-data-modeling-project" title="Link to this heading">¶</a></h1>
+<h1>How to run a collaborative data modeling project<a class="headerlink" href="#how-to-run-a-collaborative-data-modeling-project" title="Permalink to this heading">#</a></h1>
 <p>This document describes how to run a collaborative data modeling project using the <a class="reference external" href="https://linkml.io">LinkML</a> modeling language.</p>
 <p>This guide is intended to serve as a practical how-to for running a collaborative data modeling project,
 adaptable to the diverse needs of different projects.
@@ -364,7 +364,7 @@ This guide is designed to equip you with the essentials for navigating these com
 <p>This guide is a work in progress, and in the spirit of the guide itself, we welcome comments (<a class="reference external" href="https://github.com/linkml/linkml/issues/1744">issue 1744</a>)
 and pull requests.</p>
 <section id="sources">
-<h2>Sources<a class="headerlink" href="#sources" title="Link to this heading">¶</a></h2>
+<h2>Sources<a class="headerlink" href="#sources" title="Permalink to this heading">#</a></h2>
 <p>In this guide we draw from:</p>
 <ul class="simple">
 <li><p>The O3 guidelines: <a class="reference external" href="https://osf.io/vuzt3/">Open code, open data, and open infrastructure to promote the longevity of curated scientific resources</a></p></li>
@@ -373,9 +373,9 @@ and pull requests.</p>
 </ul>
 </section>
 <section id="principles">
-<h2>Principles<a class="headerlink" href="#principles" title="Link to this heading">¶</a></h2>
+<h2>Principles<a class="headerlink" href="#principles" title="Permalink to this heading">#</a></h2>
 <section id="version-control-your-schema">
-<h3>Version Control Your Schema<a class="headerlink" href="#version-control-your-schema" title="Link to this heading">¶</a></h3>
+<h3>Version Control Your Schema<a class="headerlink" href="#version-control-your-schema" title="Permalink to this heading">#</a></h3>
 <p>(adapted from <a class="reference external" href="https://osf.io/vuzt3/">O3 guidelines</a>)</p>
 <p>Version control systems like git track changes in files and enable multiple users to collaborate. They are widely used for maintaining code,
 but can (and should) also be used to maintain and manage data, metadata, ontologies, schemas, and other semantic artifacts.</p>
@@ -384,7 +384,7 @@ for “registry” style projects, but in other cases the data may be best manag
 store or a repository like Zenodo or Figshare.</p>
 </section>
 <section id="permissively-license-your-code-and-data">
-<h3>Permissively License Your Code and Data<a class="headerlink" href="#permissively-license-your-code-and-data" title="Link to this heading">¶</a></h3>
+<h3>Permissively License Your Code and Data<a class="headerlink" href="#permissively-license-your-code-and-data" title="Permalink to this heading">#</a></h3>
 <p>(adapted from <a class="reference external" href="https://osf.io/vuzt3/">O3 guidelines</a>)</p>
 <p>Using recognizable, permissive licenses (e.g., CC0, CC BY) encourages contribution and ensures content longevity.
 Non-permissive licenses or custom terms can hinder reuse and engagement.
@@ -392,7 +392,7 @@ Permissive licensing doesn’t typically lead to a lack of credit for the origin
 <p>CC0 and CC BY are good for non-code resources; code should be licensed with a permissive software license such as Apache-2.0 (used in the <a class="reference external" href="https://github.com/linkml/linkml/blob/main/LICENSE">linkml repo</a>), BSD-3, or MIT.</p>
 </section>
 <section id="use-technical-workflows-automation-and-social-workflows">
-<h3>Use Technical Workflows (Automation) and Social Workflows<a class="headerlink" href="#use-technical-workflows-automation-and-social-workflows" title="Link to this heading">¶</a></h3>
+<h3>Use Technical Workflows (Automation) and Social Workflows<a class="headerlink" href="#use-technical-workflows-automation-and-social-workflows" title="Permalink to this heading">#</a></h3>
 <p>(adapted from <a class="reference external" href="https://osf.io/vuzt3/">O3 guidelines</a>)</p>
 <p>Automating quality control, generation of artifacts, releases, and deployment helps in maintaining and contributing to projects.
 This includes using continuous integration for quality checks, automating the generation of data views, and packaging data and code for easy deployment.</p>
@@ -404,7 +404,7 @@ Transparent discussion forums, giving credit to contributors, and using issue tr
 as <a class="reference external" href="https://codeinthehole.com/tips/advanced-pull-request-crafting/">keeping issues and pull requests small and atomic</a>.</p>
 </section>
 <section id="establish-project-governance">
-<h3>Establish Project Governance<a class="headerlink" href="#establish-project-governance" title="Link to this heading">¶</a></h3>
+<h3>Establish Project Governance<a class="headerlink" href="#establish-project-governance" title="Permalink to this heading">#</a></h3>
 <p>(adapted from <a class="reference external" href="https://osf.io/vuzt3/">O3 guidelines</a> and TisLab guide)</p>
 <p>Clear governance defines roles, responsibilities, and behavior expectations in a project.
 Establishing codes of conduct, standard operating procedures, and guidelines for administration and contribution roles is vital.
@@ -428,7 +428,7 @@ Governance should evolve over time to meet the project’s needs.</p>
 </ul>
 </section>
 <section id="attract-and-engage-contributors">
-<h3>Attract and Engage Contributors<a class="headerlink" href="#attract-and-engage-contributors" title="Link to this heading">¶</a></h3>
+<h3>Attract and Engage Contributors<a class="headerlink" href="#attract-and-engage-contributors" title="Permalink to this heading">#</a></h3>
 <p>Detailed contribution guidelines, offering various ways to contribute, and hosting projects in neutral spaces increase contributor engagement and recruitment. Projects should be accessible and welcoming to new contributors to ensure longevity and development.</p>
 <p>The <a class="reference external" href="https://github.com/linkml/linkml-project-cookiecutter/">LinkML Cookiecutter</a> provides a template
 for project documents such as a <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file and a <code class="docutils literal notranslate"><span class="pre">CODE_OF_CONDUCT.md</span></code> file that can be
@@ -540,20 +540,20 @@ and concentrate on things that are project-specific.</p>
 </section>
 </section>
 <section id="open-science-principles">
-<h2>Open Science Principles<a class="headerlink" href="#open-science-principles" title="Link to this heading">¶</a></h2>
+<h2>Open Science Principles<a class="headerlink" href="#open-science-principles" title="Permalink to this heading">#</a></h2>
 <p>Many schemas developed in LinkML are not intended to be used in isolation, but rather as part of a larger
 open ecosystem. The <a class="reference external" href="https://oboacademy.github.io/obook">OBook</a> has a chapter <a class="reference external" href="https://oboacademy.github.io/obook/howto/open-science-engineer/">How to be an Open Science Engineer - maximising impact for a better world</a> outlines principles and practices for effective collaboration and impact in the field of open science engineering.</p>
 <p>Here’s a summary:</p>
 <section id="principle-of-collaboration">
-<h3>Principle of Collaboration<a class="headerlink" href="#principle-of-collaboration" title="Link to this heading">¶</a></h3>
+<h3>Principle of Collaboration<a class="headerlink" href="#principle-of-collaboration" title="Permalink to this heading">#</a></h3>
 <p>Emphasizes the importance of social collaborative workflows in open science. It advises on effective online communication, upvoting helpful answers on platforms like Stack Overflow and GitHub, answering questions even outside one’s specific project, conducting basic research before posting queries, and continuously improving open science documentation.</p>
 </section>
 <section id="principle-of-upstream-fixing">
-<h3>Principle of Upstream Fixing<a class="headerlink" href="#principle-of-upstream-fixing" title="Link to this heading">¶</a></h3>
+<h3>Principle of Upstream Fixing<a class="headerlink" href="#principle-of-upstream-fixing" title="Permalink to this heading">#</a></h3>
 <p>Encourages fixing issues at the earliest possible stage in the dependency chain, maximizing the impact of changes and benefiting a wider community. It includes a case study highlighting the importance of quality control and community contributions in ontology development.</p>
 </section>
 <section id="principle-of-no-ownership">
-<h3>Principle of No-ownership<a class="headerlink" href="#principle-of-no-ownership" title="Link to this heading">¶</a></h3>
+<h3>Principle of No-ownership<a class="headerlink" href="#principle-of-no-ownership" title="Permalink to this heading">#</a></h3>
 <p>Advocates for a mindset of shared ownership and collaborative development in open science projects, particularly in the context of publicly funded work like ontologies. It suggests embracing community-driven development without specific owners or decision-makers and emphasizes the importance of proactive involvement and decision-making in a decentralized environment.</p>
 <p>The document also includes a TL;DR summary with key takeaways:</p>
 <ul class="simple">
@@ -569,9 +569,9 @@ open ecosystem. The <a class="reference external" href="https://oboacademy.githu
 </section>
 </section>
 <section id="example-governance-and-community-documents">
-<h2>Example Governance and Community Documents<a class="headerlink" href="#example-governance-and-community-documents" title="Link to this heading">¶</a></h2>
+<h2>Example Governance and Community Documents<a class="headerlink" href="#example-governance-and-community-documents" title="Permalink to this heading">#</a></h2>
 <section id="bioschemas-governance">
-<h3>Bioschemas governance<a class="headerlink" href="#bioschemas-governance" title="Link to this heading">¶</a></h3>
+<h3>Bioschemas governance<a class="headerlink" href="#bioschemas-governance" title="Permalink to this heading">#</a></h3>
 <p><strong>Source</strong>: Bioschemas <a class="reference external" href="https://bioschemas.org/community/">community</a> and <a class="reference external" href="https://github.com/Bioschemas/governance/blob/master/governance.md">governance</a> docs</p>
 <p>The document titled “Bioschemas Governance” outlines the governance structure and guidelines for the Bioschemas community, a project aimed at improving data interoperability in life sciences. Here’s a summary:</p>
 <ul class="simple">
@@ -587,7 +587,7 @@ open ecosystem. The <a class="reference external" href="https://oboacademy.githu
 <p>This document provides a comprehensive guide to the governance structure, roles, processes, and best practices within the Bioschemas community, emphasizing open collaboration, transparency, and adherence to established standards.</p>
 </section>
 <section id="schema-org">
-<h3>schema.org<a class="headerlink" href="#schema-org" title="Link to this heading">¶</a></h3>
+<h3>schema.org<a class="headerlink" href="#schema-org" title="Permalink to this heading">#</a></h3>
 <p><strong>SOURCE</strong>: schema.org <a class="reference external" href="https://schema.org/docs/howwework.html">how we work</a></p>
 <p>The document titled “How We Work - Schema.org” provides an overview of the processes and practices employed by Schema.org in developing and updating its schemas. Here’s a summary:</p>
 <ul class="simple">
@@ -728,9 +728,9 @@ open ecosystem. The <a class="reference external" href="https://oboacademy.githu
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

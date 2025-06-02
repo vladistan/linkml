@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Advanced features" href="advanced.html" /><link rel="prev" title="Subsets" href="subsets.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Imports - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,13 +348,13 @@
         </div>
         <article role="main">
           <section id="imports">
-<h1>Imports<a class="headerlink" href="#imports" title="Link to this heading">¶</a></h1>
+<h1>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h1>
 <p>LinkML encourages modular schema development. You can split you schema into modules, and even reuse other peoples
 modules on the web</p>
 <p>A schema can have a list of <a class="reference external" href="https://w3id.org/linkml/imports">imports</a> associated with it. These are specified
 as CURIEs or local imports.</p>
 <section id="importing-external-schemas">
-<h2>Importing external schemas<a class="headerlink" href="#importing-external-schemas" title="Link to this heading">¶</a></h2>
+<h2>Importing external schemas<a class="headerlink" href="#importing-external-schemas" title="Permalink to this heading">#</a></h2>
 <p>Most schemas will have at least an imports to the linkml types schema, which defines core types:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prefixes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span>
@@ -370,7 +370,7 @@ import is expanded to <code class="docutils literal notranslate"><span class="pr
 file type suffix is added, yielding <a class="reference external" href="https://w3id.org/linkml/types.yaml">https://w3id.org/linkml/types.yaml</a></p>
 </section>
 <section id="local-imports">
-<h2>Local imports<a class="headerlink" href="#local-imports" title="Link to this heading">¶</a></h2>
+<h2>Local imports<a class="headerlink" href="#local-imports" title="Permalink to this heading">#</a></h2>
 <p>You can also specify relative paths, e.g</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">imports</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">core</span>
@@ -383,7 +383,7 @@ sure that the imported modules are accessible and follow the same
 paths</p>
 </section>
 <section id="making-merged-files-for-distribution">
-<h2>Making merged files for distribution<a class="headerlink" href="#making-merged-files-for-distribution" title="Link to this heading">¶</a></h2>
+<h2>Making merged files for distribution<a class="headerlink" href="#making-merged-files-for-distribution" title="Permalink to this heading">#</a></h2>
 <p>Sometimes it can be convenient to <em>merge imports</em> prior to
 distribution. This makes it easier for programs that want to make use
 of a linkml schema, as they only have to work with one file, rather
@@ -468,9 +468,9 @@ combined file for distribution (in either JSON or YAML)</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

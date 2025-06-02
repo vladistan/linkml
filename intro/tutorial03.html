@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Part 4: Working with RDF" href="tutorial04.html" /><link rel="prev" title="Part 2: Adding a container object" href="tutorial02.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Part 3: Adding constraints and performing validation - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="part-3-adding-constraints-and-performing-validation">
-<h1>Part 3: Adding constraints and performing validation<a class="headerlink" href="#part-3-adding-constraints-and-performing-validation" title="Link to this heading">¶</a></h1>
+<h1>Part 3: Adding constraints and performing validation<a class="headerlink" href="#part-3-adding-constraints-and-performing-validation" title="Permalink to this heading">#</a></h1>
 <p>Now we will add richer information to our schema, including:</p>
 <ul class="simple">
 <li><p>adding <em>range</em>s for fields such as age</p></li>
@@ -358,7 +358,7 @@
 <li><p>adding textual descriptions of schema elements</p></li>
 </ul>
 <section id="example-schema">
-<h2>Example schema<a class="headerlink" href="#example-schema" title="Link to this heading">¶</a></h2>
+<h2>Example schema<a class="headerlink" href="#example-schema" title="Permalink to this heading">#</a></h2>
 <p>personinfo.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span>
@@ -401,7 +401,7 @@
 <p>Note that we haven’t declared ranges for some fields, but the <em>default_range</em> directive at the schema level ensures things default to string.</p>
 </section>
 <section id="example-data">
-<h2>Example data<a class="headerlink" href="#example-data" title="Link to this heading">¶</a></h2>
+<h2>Example data<a class="headerlink" href="#example-data" title="Permalink to this heading">#</a></h2>
 <p>Let’s deliberately introduce some bad data to make sure our validator is working:</p>
 <p>bad-data.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">persons</span><span class="p">:</span>
@@ -447,13 +447,13 @@
 <p>We have successfully fixed one of the issues with the data!</p>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>See if you can iterate on the example data to get something that validates.</p></li>
 </ol>
 </section>
 <section id="using-the-json-schema-directly">
-<h2>Using the JSON Schema directly<a class="headerlink" href="#using-the-json-schema-directly" title="Link to this heading">¶</a></h2>
+<h2>Using the JSON Schema directly<a class="headerlink" href="#using-the-json-schema-directly" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">linkml-validate</span></code> command is a wrapper than can be used for an
 open-ended number of validator implementations. The current default is
 to use a JSON Schema validator. This involves converting LinkML to
@@ -479,7 +479,7 @@ to be complete.</p>
 <p>See the <a class="reference internal" href="../generators/json-schema.html"><span class="doc std std-doc">JSON-Schema generator</span></a> docs for more info on JSON-Schema validation</p>
 </section>
 <section id="other-validation-strategies">
-<h2>Other validation strategies<a class="headerlink" href="#other-validation-strategies" title="Link to this heading">¶</a></h2>
+<h2>Other validation strategies<a class="headerlink" href="#other-validation-strategies" title="Permalink to this heading">#</a></h2>
 <p>Other strategies include</p>
 <ul class="simple">
 <li><p>converting data to a relational database and doing performant evaluation in SQL</p></li>
@@ -488,7 +488,7 @@ to be complete.</p>
 <p>The next section deals with working with RDF data.</p>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../data/index.html"><span class="doc std std-doc">Working with Data</span></a></p></li>
 <li><p>Metamodel Specification</p>
@@ -587,9 +587,9 @@ to be complete.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

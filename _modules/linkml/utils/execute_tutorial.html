@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>linkml.utils.execute_tutorial - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -385,9 +385,7 @@
 <span class="n">re_html_comment</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^&lt;!-- (.+) --&gt;&quot;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Block">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block">[docs]</a>
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="Block"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Block</span><span class="p">:</span>
     <span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># yaml, bash, python, ...</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
@@ -398,29 +396,17 @@
     <span class="n">prior_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">annotations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Block.is_file_block">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_file_block">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_file_block</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Block.is_file_block"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_file_block">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_file_block</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="ow">and</span> <span class="s2">&quot;.&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span></div>
 
-
-<div class="viewcode-block" id="Block.is_stdout">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_stdout">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_stdout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="Block.is_stdout"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_stdout">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_stdout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="ow">and</span> <span class="s2">&quot;output&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
-
-<div class="viewcode-block" id="Block.is_bash">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_bash">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_bash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;bash&quot;</span></div>
-</div>
+<div class="viewcode-block" id="Block.is_bash"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.Block.is_bash">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_bash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;bash&quot;</span></div></div>
 
 
-
-<div class="viewcode-block" id="execute_blocks">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.execute_blocks">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">execute_blocks</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="viewcode-block" id="execute_blocks"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.execute_blocks">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">execute_blocks</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Execute the code blocks embedded in a tutorial</span>
 
@@ -499,18 +485,12 @@
     <span class="k">return</span> <span class="n">errs</span></div>
 
 
-
-<div class="viewcode-block" id="write_lines">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.write_lines">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">write_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="write_lines"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.write_lines">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">write_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;+++ </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
-
-<div class="viewcode-block" id="parse_file_to_blocks">
-<a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.parse_file_to_blocks">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">parse_file_to_blocks</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<div class="viewcode-block" id="parse_file_to_blocks"><a class="viewcode-back" href="../../../code/utils.html#linkml.utils.execute_tutorial.parse_file_to_blocks">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">parse_file_to_blocks</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parses a markdown tutorial file to code blocks to be executed</span>
 
@@ -609,7 +589,6 @@
     <span class="k">return</span> <span class="n">blocks</span></div>
 
 
-
 <span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
     <span class="s2">&quot;--directory&quot;</span><span class="p">,</span>
@@ -684,9 +663,9 @@
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

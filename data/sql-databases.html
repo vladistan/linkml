@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Generators" href="../generators/index.html" /><link rel="prev" title="Python" href="python.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Working with data in SQL Databases - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,15 +348,15 @@
         </div>
         <article role="main">
           <section id="working-with-data-in-sql-databases">
-<h1>Working with data in SQL Databases<a class="headerlink" href="#working-with-data-in-sql-databases" title="Link to this heading">¶</a></h1>
+<h1>Working with data in SQL Databases<a class="headerlink" href="#working-with-data-in-sql-databases" title="Permalink to this heading">#</a></h1>
 <p><strong>NOTE</strong>: Currently SQL Database support is incomplete</p>
 <p>See <a class="reference internal" href="../intro/tutorial09.html"><span class="doc std std-doc">part 9 of the tutorial</span></a> for an introduction.</p>
 <section id="storing-and-retrieving-data-in-sqlite3">
-<h2>Storing and retrieving data in SQLite3<a class="headerlink" href="#storing-and-retrieving-data-in-sqlite3" title="Link to this heading">¶</a></h2>
+<h2>Storing and retrieving data in SQLite3<a class="headerlink" href="#storing-and-retrieving-data-in-sqlite3" title="Permalink to this heading">#</a></h2>
 <p>See <a class="reference internal" href="../developers/using-sql-dbs.html"><span class="doc std std-doc">Using SQL DBs</span></a> in the Developers Guide</p>
 </section>
 <section id="mapping-from-a-linkml-model-to-sql-schemas">
-<h2>Mapping from a LinkML model to SQL Schemas<a class="headerlink" href="#mapping-from-a-linkml-model-to-sql-schemas" title="Link to this heading">¶</a></h2>
+<h2>Mapping from a LinkML model to SQL Schemas<a class="headerlink" href="#mapping-from-a-linkml-model-to-sql-schemas" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../generators/sqltable.html"><span class="doc std std-doc">SQL Table Generator</span></a> can be used to generate SQL DDL (<code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> statements) from a schema.</p>
 <p>There are many <em>possible</em> ways of mapping a LinkML schema to SQL DDL.
 The existing generator makes a specific set of decisions, in future it may be possible to customize this more to your needs.</p>
@@ -395,7 +395,7 @@ The existing generator makes a specific set of decisions, in future it may be po
 <p>Mapping is done via SQL Alchemy, which takes care of difference in SQL <em>dialects</em>.</p>
 </section>
 <section id="creation-of-an-object-relation-mapping-layer">
-<h2>Creation of an Object-Relation Mapping layer<a class="headerlink" href="#creation-of-an-object-relation-mapping-layer" title="Link to this heading">¶</a></h2>
+<h2>Creation of an Object-Relation Mapping layer<a class="headerlink" href="#creation-of-an-object-relation-mapping-layer" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../generators/sqlalchemy.html"><span class="doc std std-doc">SQLAlchemy Generator</span></a> will generate a Python ORM.</p>
 <p>Currently there is no support for ORM generation in other languages.</p>
 <p>Given that ORM layers need to tuned to specific use cases, you may wish to provide your own mapping.
@@ -473,9 +473,9 @@ For Java you can do this by tuning the Jinja2 templates that are generated, see 
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

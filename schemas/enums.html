@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Inlining objects" href="inlining.html" /><link rel="prev" title="URIs and Mappings" href="uris-and-mappings.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Semantic Enumerations - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="semantic-enumerations">
-<h1>Semantic Enumerations<a class="headerlink" href="#semantic-enumerations" title="Link to this heading">¶</a></h1>
+<h1>Semantic Enumerations<a class="headerlink" href="#semantic-enumerations" title="Permalink to this heading">#</a></h1>
 <p>Enumerations are common features in modeling frameworks. These can be
 thought of as a “drop-down” of permissible values for a
 field/slot. For example, a “vital status” slot may have an enumeration
@@ -359,7 +359,7 @@ with permissible values <code class="docutils literal notranslate"><span class="
 <li><p>Enumerations can be <em>static</em> or <em>dynamic</em>, where dynamic enums are defined by a set of constraints (e.g. a branch of an ontology)</p></li>
 </ul>
 <section id="basic-enums">
-<h2>Basic Enums<a class="headerlink" href="#basic-enums" title="Link to this heading">¶</a></h2>
+<h2>Basic Enums<a class="headerlink" href="#basic-enums" title="Permalink to this heading">#</a></h2>
 <p>The core enumeration model is the same as for familiar systems, where there is a set of allowed string values:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">enums</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">FamilialRelationshipType</span><span class="p">:</span>
@@ -383,7 +383,7 @@ with permissible values <code class="docutils literal notranslate"><span class="
 </div>
 </section>
 <section id="mapping-permissible-values-to-ontologies">
-<h2>Mapping Permissible Values to Ontologies<a class="headerlink" href="#mapping-permissible-values-to-ontologies" title="Link to this heading">¶</a></h2>
+<h2>Mapping Permissible Values to Ontologies<a class="headerlink" href="#mapping-permissible-values-to-ontologies" title="Permalink to this heading">#</a></h2>
 <p>As an example, we will map the Permissible Values above to terms from the GA4GH <a class="reference external" href="https://github.com/GA4GH-Pedigree-Standard/">pedigree standard</a> kinship ontology.</p>
 <p>We will first add a base prefix declaration (KIN concepts have PURLs of the form http://purl.org/ga4gh/kin.owl#KIN_007):</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prefixes</span><span class="p">:</span>
@@ -408,7 +408,7 @@ with permissible values <code class="docutils literal notranslate"><span class="
 </div>
 </section>
 <section id="working-with-enums-in-python">
-<h2>Working with Enums in Python<a class="headerlink" href="#working-with-enums-in-python" title="Link to this heading">¶</a></h2>
+<h2>Working with Enums in Python<a class="headerlink" href="#working-with-enums-in-python" title="Permalink to this heading">#</a></h2>
 <p>Enumerations are mapped directly to Python enums. See</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/linkml/linkml/blob/main/notebooks/enumerations.ipynb">enumerations notebook</a></p></li>
@@ -416,7 +416,7 @@ with permissible values <code class="docutils literal notranslate"><span class="
 <p>for examples.</p>
 </section>
 <section id="dynamic-enums">
-<h2>Dynamic Enums<a class="headerlink" href="#dynamic-enums" title="Link to this heading">¶</a></h2>
+<h2>Dynamic Enums<a class="headerlink" href="#dynamic-enums" title="Permalink to this heading">#</a></h2>
 <p>Starting with LinkML 1.3, enums do not have to be a static hardcoded list; instead they can be <em>dynamic</em>, populated by a query.</p>
 <p>This allows the enum to be synced with some upstream source, and avoids hardcoding very long lists where there are a lot of possibilities.</p>
 <p>The following example defines an enumeration that selects any subtype of “neuron” from the OBO cell type ontology:</p>
@@ -487,7 +487,7 @@ with permissible values <code class="docutils literal notranslate"><span class="
 </div>
 </section>
 <section id="tooling-to-support-dynamic-enums">
-<h2>Tooling to support dynamic enums<a class="headerlink" href="#tooling-to-support-dynamic-enums" title="Link to this heading">¶</a></h2>
+<h2>Tooling to support dynamic enums<a class="headerlink" href="#tooling-to-support-dynamic-enums" title="Permalink to this heading">#</a></h2>
 <p>Different tool chains may choose to implement dynamic enums differently.</p>
 <p>For example, if you have a stack that uses JSON-Schema for validation,
 then tools may choose to <em>materialize</em> a dynamic query into a static
@@ -581,9 +581,9 @@ vskit<span class="w"> </span>expand<span class="w"> </span>-s<span class="w"> </
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Python" href="python.html" /><link rel="prev" title="Working with RDF and LinkML" href="rdf.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>CSVs and Tabular Data - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,21 +348,21 @@
         </div>
         <article role="main">
           <section id="csvs-and-tabular-data">
-<h1>CSVs and Tabular Data<a class="headerlink" href="#csvs-and-tabular-data" title="Link to this heading">¶</a></h1>
+<h1>CSVs and Tabular Data<a class="headerlink" href="#csvs-and-tabular-data" title="Permalink to this heading">#</a></h1>
 <p>LinkML can support both complex interlinked normalized relational data as well as flat/denormalized data as typically found in spreadsheets and in CSVs used by data scientists.</p>
 <p>Our philosophy is “always have a schema” even when working with simple tabular data.</p>
 <section id="conversion">
-<h2>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">¶</a></h2>
+<h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this heading">#</a></h2>
 <p>the <code class="docutils literal notranslate"><span class="pre">linkml-convert</span></code> script can be used to convert between CSVs/TSVs and other formats like JSON/RDF. The same tooling for <a class="reference internal" href="validating-data.html"><span class="doc std std-doc">validating-data</span></a> operate in the same way.</p>
 <section id="conventions-for-working-with-tabular-data">
-<h3>Conventions for working with tabular data<a class="headerlink" href="#conventions-for-working-with-tabular-data" title="Link to this heading">¶</a></h3>
+<h3>Conventions for working with tabular data<a class="headerlink" href="#conventions-for-working-with-tabular-data" title="Permalink to this heading">#</a></h3>
 <p>LinkML allows you to create schemas with complex nested data - these
 don’t necessarily have a simple unified mapping to
 tables/TSVs. However, you can still work with tabular representations
 if your schema has a certain “shape” and you provide sufficient hints.</p>
 </section>
 <section id="container-objects">
-<h3>Container objects<a class="headerlink" href="#container-objects" title="Link to this heading">¶</a></h3>
+<h3>Container objects<a class="headerlink" href="#container-objects" title="Permalink to this heading">#</a></h3>
 <p>See <a class="reference internal" href="../intro/tutorial02.html"><span class="doc std std-doc">part 2 of the tutorial</span></a> for an introduction to container objects.</p>
 <p>To serialize your data objects as TSVs, it’s assumed that you have a
 class in your schema that serves the role of <em>container</em>. It can be
@@ -393,7 +393,7 @@ arguments:</p>
 <p>Note that currently serializing the person objects won’t work, as the Person class is too nested to be serialized as TSV</p>
 </section>
 <section id="on-the-fly-denormalization">
-<h3>On the fly denormalization<a class="headerlink" href="#on-the-fly-denormalization" title="Link to this heading">¶</a></h3>
+<h3>On the fly denormalization<a class="headerlink" href="#on-the-fly-denormalization" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://github.com/cmungall/json-flattener/">json-flattener/</a> library is used to do on-the-fly denormalizations. For example:</p>
 <ul class="simple">
 <li><p>multivalued slots are serialized using a <code class="docutils literal notranslate"><span class="pre">|</span></code> separator</p></li>
@@ -402,7 +402,7 @@ arguments:</p>
 </section>
 </section>
 <section id="inference-of-schemas-from-tabular-data">
-<h2>Inference of schemas from tabular data<a class="headerlink" href="#inference-of-schemas-from-tabular-data" title="Link to this heading">¶</a></h2>
+<h2>Inference of schemas from tabular data<a class="headerlink" href="#inference-of-schemas-from-tabular-data" title="Permalink to this heading">#</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">generalize-tsv</span></code> command in the <a class="reference external" href="https://github.com/linkml/schema-automator">schema-automator</a></p>
 </section>
 </section>
@@ -481,9 +481,9 @@ arguments:</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

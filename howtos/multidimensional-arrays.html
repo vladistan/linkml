@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How to make a property graph schema" href="model-property-graphs.html" /><link rel="prev" title="Porting LinkML tools to other programming languages" href="port-linkml.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Multidimensional Arrays - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="multidimensional-arrays">
-<span id="howto-arrays"></span><h1>Multidimensional Arrays<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">¶</a></h1>
+<span id="howto-arrays"></span><h1>Multidimensional Arrays<a class="headerlink" href="#multidimensional-arrays" title="Permalink to this heading">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>With the release of LinkML 1.7.0.
@@ -360,7 +360,7 @@ development of the specification, and will be integrated elsewhere in the docs.<
 <p>See <a class="reference internal" href="../schemas/arrays.html#arrays"><span class="std std-ref">Schema/arrays</span></a> for more information on specifying arrays</p>
 </div>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>Multidimensional arrays (Also: N-dimensional arrays, or here just
 “Arrays”) are essential for scientific computing - yet many modeling
 languages lack first class support for arrays.</p>
@@ -434,7 +434,7 @@ first class array representation, which is often preferable both for
 data science and efficiency reasons.</p>
 </section>
 <section id="alternatives-wide-table-representation">
-<h2>Alternatives: Wide table representation<a class="headerlink" href="#alternatives-wide-table-representation" title="Link to this heading">¶</a></h2>
+<h2>Alternatives: Wide table representation<a class="headerlink" href="#alternatives-wide-table-representation" title="Permalink to this heading">#</a></h2>
 <p>For scientific computing purposes, we may choose to implement a different JSON serialization, such as a list of lists of lists (LoLoLs):</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
 <span class="w">   </span><span class="p">[</span>
@@ -507,7 +507,7 @@ N-dimensional arrays for scientific computing. Note these are
 preliminary, and may change in future!</p>
 </section>
 <section id="n-dimensional-arrays-in-linkml">
-<h2>N-Dimensional Arrays in LinkML<a class="headerlink" href="#n-dimensional-arrays-in-linkml" title="Link to this heading">¶</a></h2>
+<h2>N-Dimensional Arrays in LinkML<a class="headerlink" href="#n-dimensional-arrays-in-linkml" title="Permalink to this heading">#</a></h2>
 <p>To illustrate this, we will start with some example YAML data, similar to the above:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">x</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">20</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">30</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">40</span><span class="p p-Indicator">]</span>
@@ -571,7 +571,7 @@ data is highly ambiguous when removed from its original context.</p>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:elements</span>
 <span class="w">        </span><span class="nt">unit</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deg</span>
-<span class="w">          </span>
+
 <span class="w">  </span><span class="nt">LongitudeSeries</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A series whose values represent longitude</span>
 <span class="w">    </span><span class="nt">implements</span><span class="p">:</span>
@@ -584,7 +584,7 @@ data is highly ambiguous when removed from its original context.</p>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:elements</span>
 <span class="w">        </span><span class="nt">unit</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">ucum_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deg</span>
-<span class="w">          </span>
+
 <span class="w">  </span><span class="nt">DaySeries</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A series whose values represent the days since the start of the measurement period</span>
 <span class="w">    </span><span class="nt">implements</span><span class="p">:</span>
@@ -620,7 +620,7 @@ tooling will use the <em>direct</em> linearized representation.</p>
 </div>
 <p>However, we at least have an unambiguous interpretation of the elements</p>
 <section id="json-and-yaml-serialization">
-<h3>JSON and YAML serialization<a class="headerlink" href="#json-and-yaml-serialization" title="Link to this heading">¶</a></h3>
+<h3>JSON and YAML serialization<a class="headerlink" href="#json-and-yaml-serialization" title="Permalink to this heading">#</a></h3>
 <p>The <em>direct</em> linear sequence serialization is currently default.</p>
 <p>In future, the LinkML will allow for conversion between a nested list representation and the linearized sequence via the LinkML <em>normalizer</em>.</p>
 <p>See:</p>
@@ -629,7 +629,7 @@ tooling will use the <em>direct</em> linearized representation.</p>
 </ul>
 </section>
 <section id="serialization-to-hdf5-zarr-and-other-matrix-formats">
-<h3>Serialization to HDF5, Zarr, and other matrix formats<a class="headerlink" href="#serialization-to-hdf5-zarr-and-other-matrix-formats" title="Link to this heading">¶</a></h3>
+<h3>Serialization to HDF5, Zarr, and other matrix formats<a class="headerlink" href="#serialization-to-hdf5-zarr-and-other-matrix-formats" title="Permalink to this heading">#</a></h3>
 <p>We exploring how this work can be used in the context of other formats and standards:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a> Zarr is a file storage format for chunked, compressed, N-dimensional arrays based on an open-source specification.</p></li>
@@ -646,7 +646,7 @@ exploring options for a native serialization that would leverage the
 Array templates, potentially integrating with HDMF and/or CORAL.</p>
 </section>
 <section id="enhanced-python-serializations">
-<h3>Enhanced python serializations<a class="headerlink" href="#enhanced-python-serializations" title="Link to this heading">¶</a></h3>
+<h3>Enhanced python serializations<a class="headerlink" href="#enhanced-python-serializations" title="Permalink to this heading">#</a></h3>
 <p>One option we are exploring is an alternative python/pydantic
 generation where there are convenient methods/properties for accessing
 elements using array index tuples.</p>
@@ -654,7 +654,7 @@ elements using array index tuples.</p>
 </section>
 </section>
 <section id="further-discussion">
-<h2>Further discussion<a class="headerlink" href="#further-discussion" title="Link to this heading">¶</a></h2>
+<h2>Further discussion<a class="headerlink" href="#further-discussion" title="Permalink to this heading">#</a></h2>
 <p>Feel free to open an issue and tag <a class="reference external" href="https://github.com/orgs/linkml/teams/ndarray-wg">&#64;ndarray-wg</a></p>
 </section>
 </section>
@@ -735,9 +735,9 @@ elements using array index tuples.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

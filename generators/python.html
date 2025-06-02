@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Pydantic" href="pydantic.html" /><link rel="prev" title="Project Generator" href="project-generator.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Python - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,17 +348,17 @@
         </div>
         <article role="main">
           <section id="python">
-<h1>Python<a class="headerlink" href="#python" title="Link to this heading">¶</a></h1>
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../data/python.html"><span class="doc">Using Python</span></a></p>
 </div>
 <section id="example-output">
-<h2>Example Output<a class="headerlink" href="#example-output" title="Link to this heading">¶</a></h2>
+<h2>Example Output<a class="headerlink" href="#example-output" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://github.com/linkml/linkml/blob/main/examples/PersonSchema/personinfo/personinfo.py">personinfo.py</a></p>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>The Python generator will generate a Python object model from a LinkML schema</p>
 <p>To run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen-python<span class="w"> </span>personinfo.yaml<span class="w"> </span>&gt;<span class="w"> </span>personinfo.py
@@ -373,13 +373,13 @@ objects. For example:</p>
 <p>The linkml-runtime framework can be used to serialize these objects to
 JSON, YAML, RDF, and TSV, as well as to load them</p>
 <section id="dataclasses">
-<h3>Dataclasses<a class="headerlink" href="#dataclasses" title="Link to this heading">¶</a></h3>
+<h3>Dataclasses<a class="headerlink" href="#dataclasses" title="Permalink to this heading">#</a></h3>
 <p>We use the standard <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">Python dataclasses framework</a></p>
 <p>Note that there is an alternative generator for using
 Pydantic, see <a class="reference internal" href="pydantic.html"><span class="doc">Pydantic Generator</span></a></p>
 </section>
 <section id="inheritance">
-<h3>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">¶</a></h3>
+<h3>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">#</a></h3>
 <p>The linkml is_a slot is mapped to superclasses in the generated
 classes. Note that mixins are not currently handled in the same way -
 we avoid multiple inheritance. Instead, mixins are “rolled down” to
@@ -388,7 +388,7 @@ their implementing classes.</p>
 linkml-runtime.</p>
 </section>
 <section id="object-creation">
-<h3>Object Creation<a class="headerlink" href="#object-creation" title="Link to this heading">¶</a></h3>
+<h3>Object Creation<a class="headerlink" href="#object-creation" title="Permalink to this heading">#</a></h3>
 <p>Generated class include specific initialization code in <code class="docutils literal notranslate"><span class="pre">post_init</span></code>
 that is permissive in how objects are created. For example, when
 adding inlined objects any of the following can be used:</p>
@@ -405,7 +405,7 @@ adding inlined objects any of the following can be used:</p>
 </div>
 </section>
 <section id="non-inlined-references">
-<h3>Non-inlined references<a class="headerlink" href="#non-inlined-references" title="Link to this heading">¶</a></h3>
+<h3>Non-inlined references<a class="headerlink" href="#non-inlined-references" title="Permalink to this heading">#</a></h3>
 <p>In LinkML schemas, references to other objects can be declared as
 <a class="reference internal" href="../schemas/inlining.html"><span class="doc">inlined</span></a>. If a reference is <em>not</em> inlined,
 and the referenced object has an identifier, then the value of the
@@ -426,7 +426,7 @@ code is generated:</p>
 </div>
 </section>
 <section id="types">
-<h3>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h3>
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this heading">#</a></h3>
 <p>In LinkML types represent terminal scalar values and are mapped to
 built in Python objects such integers.</p>
 <p>For user-defined types, a class is created which inherits from that
@@ -434,11 +434,11 @@ Python base type.</p>
 </section>
 </section>
 <section id="code-docs">
-<h2>Code Docs<a class="headerlink" href="#code-docs" title="Link to this heading">¶</a></h2>
+<h2>Code Docs<a class="headerlink" href="#code-docs" title="Permalink to this heading">#</a></h2>
 <section id="command-line">
-<h3>Command Line<a class="headerlink" href="#command-line" title="Link to this heading">¶</a></h3>
+<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading">#</a></h3>
 <section id="gen-python">
-<h4>gen-python<a class="headerlink" href="#gen-python" title="Link to this heading">¶</a></h4>
+<h4>gen-python<a class="headerlink" href="#gen-python" title="Permalink to this heading">#</a></h4>
 <p>Generate python classes to represent a LinkML model</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gen-python<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>YAMLFILE
 </pre></div>
@@ -446,7 +446,7 @@ Python base type.</p>
 <p class="rubric">Options</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-head">
-<span id="cmdoption-gen-python-no-head"></span><span class="sig-name descname"><span class="pre">--head</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-head</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-head" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-head"></span><span class="sig-name descname"><span class="pre">--head</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-head</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-head" title="Permalink to this definition">#</a></dt>
 <dd><p>Emit metadata heading</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -457,7 +457,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-genmeta">
-<span id="cmdoption-gen-python-no-genmeta"></span><span class="sig-name descname"><span class="pre">--genmeta</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-genmeta</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-genmeta" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-genmeta"></span><span class="sig-name descname"><span class="pre">--genmeta</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-genmeta</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-genmeta" title="Permalink to this definition">#</a></dt>
 <dd><p>Generating metamodel. Only use this for generating meta.py</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -468,7 +468,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-classvars">
-<span id="cmdoption-gen-python-no-classvars"></span><span class="sig-name descname"><span class="pre">--classvars</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-classvars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-classvars" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-classvars"></span><span class="sig-name descname"><span class="pre">--classvars</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-classvars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-classvars" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate CLASSVAR info</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -479,7 +479,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-slots">
-<span id="cmdoption-gen-python-no-slots"></span><span class="sig-name descname"><span class="pre">--slots</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-slots</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-slots" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-slots"></span><span class="sig-name descname"><span class="pre">--slots</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-slots</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-slots" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate Slot information</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -490,7 +490,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-validate">
-<span id="cmdoption-gen-python-no-validate"></span><span class="sig-name descname"><span class="pre">--validate</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-validate</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-validate" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-validate"></span><span class="sig-name descname"><span class="pre">--validate</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-validate</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-validate" title="Permalink to this definition">#</a></dt>
 <dd><p>Validate generated code by compiling it</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -501,13 +501,13 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-V">
-<span id="cmdoption-gen-python-version"></span><span class="sig-name descname"><span class="pre">-V</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-V" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-version"></span><span class="sig-name descname"><span class="pre">-V</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-V" title="Permalink to this definition">#</a></dt>
 <dd><p>Show the version and exit.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-f">
-<span id="cmdoption-gen-python-format"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--format</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-f" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-format"></span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--format</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-f" title="Permalink to this definition">#</a></dt>
 <dd><p>Output format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -521,7 +521,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-metadata">
-<span id="cmdoption-gen-python-no-metadata"></span><span class="sig-name descname"><span class="pre">--metadata</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-metadata</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-metadata" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-metadata"></span><span class="sig-name descname"><span class="pre">--metadata</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-metadata</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-metadata" title="Permalink to this definition">#</a></dt>
 <dd><p>Include metadata in output</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -532,7 +532,7 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-useuris">
-<span id="cmdoption-gen-python-metauris"></span><span class="sig-name descname"><span class="pre">--useuris</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--metauris</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-useuris" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-metauris"></span><span class="sig-name descname"><span class="pre">--useuris</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--metauris</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-useuris" title="Permalink to this definition">#</a></dt>
 <dd><p>Use class and slot URIs over model uris</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -543,13 +543,13 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-im">
-<span id="cmdoption-gen-python-importmap"></span><span class="sig-name descname"><span class="pre">-im</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--importmap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;importmap&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-im" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-importmap"></span><span class="sig-name descname"><span class="pre">-im</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--importmap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;importmap&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-im" title="Permalink to this definition">#</a></dt>
 <dd><p>Import mapping file</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-log_level">
-<span class="sig-name descname"><span class="pre">--log_level</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;log_level&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-log_level" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--log_level</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;log_level&gt;</span></span><a class="headerlink" href="#cmdoption-gen-python-log_level" title="Permalink to this definition">#</a></dt>
 <dd><p>Logging level</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -563,19 +563,19 @@ Python base type.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-v">
-<span id="cmdoption-gen-python-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-v" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-v" title="Permalink to this definition">#</a></dt>
 <dd><p>Verbosity. Takes precedence over –log_level.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-mergeimports">
-<span id="cmdoption-gen-python-no-mergeimports"></span><span class="sig-name descname"><span class="pre">--mergeimports</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-mergeimports</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-mergeimports" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-mergeimports"></span><span class="sig-name descname"><span class="pre">--mergeimports</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-mergeimports</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-mergeimports" title="Permalink to this definition">#</a></dt>
 <dd><p>Merge imports into source file (default=mergeimports)</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-stacktrace">
-<span id="cmdoption-gen-python-no-stacktrace"></span><span class="sig-name descname"><span class="pre">--stacktrace</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-stacktrace</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-stacktrace" title="Link to this definition">¶</a></dt>
+<span id="cmdoption-gen-python-no-stacktrace"></span><span class="sig-name descname"><span class="pre">--stacktrace</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-stacktrace</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-stacktrace" title="Permalink to this definition">#</a></dt>
 <dd><p>Print a stack trace when an error occurs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -587,22 +587,22 @@ Python base type.</p>
 <p class="rubric">Arguments</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-gen-python-arg-YAMLFILE">
-<span class="sig-name descname"><span class="pre">YAMLFILE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-arg-YAMLFILE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">YAMLFILE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-gen-python-arg-YAMLFILE" title="Permalink to this definition">#</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
 </section>
 </section>
 <section id="code">
-<h3>Code<a class="headerlink" href="#code" title="Link to this heading">¶</a></h3>
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this heading">#</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="linkml.generators.pythongen.PythonGenerator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml.generators.pythongen.</span></span><span class="sig-name descname"><span class="pre">PythonGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~typing.TextIO</span> <span class="pre">|</span> <span class="pre">~linkml_runtime.linkml_model.meta.SchemaDefinition</span> <span class="pre">|</span> <span class="pre">~linkml.utils.generator.Generator</span> <span class="pre">|</span> <span class="pre">~pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemaview:</span> <span class="pre">~linkml_runtime.utils.schemaview.SchemaView</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useuris:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mergeimports:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file_date:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file_size:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespaces:</span> <span class="pre">~linkml_runtime.utils.namespaces.Namespaces</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory_output:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metamodel_name_map:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">importmap:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~collections.abc.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_prefixes:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metamodel:</span> <span class="pre">~linkml.utils.schemaloader.SchemaLoader</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacktrace:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">~linkml_runtime.linkml_model.meta.SchemaDefinition</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen_classvars:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen_slots:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genmeta:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_metadata:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataclass_repr:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linkml/generators/pythongen.html#PythonGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml.generators.pythongen.PythonGenerator" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linkml.generators.pythongen.</span></span><span class="sig-name descname"><span class="pre">PythonGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~typing.TextIO</span> <span class="pre">|</span> <span class="pre">~linkml_runtime.linkml_model.meta.SchemaDefinition</span> <span class="pre">|</span> <span class="pre">~linkml.utils.generator.Generator</span> <span class="pre">|</span> <span class="pre">~pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemaview:</span> <span class="pre">~linkml_runtime.utils.schemaview.SchemaView</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useuris:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mergeimports:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file_date:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file_size:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger:</span> <span class="pre">~logging.Logger</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespaces:</span> <span class="pre">~linkml_runtime.utils.namespaces.Namespaces</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory_output:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metamodel_name_map:</span> <span class="pre">dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">importmap:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~collections.abc.Mapping[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">str]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_prefixes:</span> <span class="pre">set[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metamodel:</span> <span class="pre">~linkml.utils.schemaloader.SchemaLoader</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacktrace:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">~pathlib.Path</span> <span class="pre">|</span> <span class="pre">~linkml_runtime.linkml_model.meta.SchemaDefinition</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen_classvars:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gen_slots:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genmeta:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emit_metadata:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataclass_repr:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linkml/generators/pythongen.html#PythonGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linkml.generators.pythongen.PythonGenerator" title="Permalink to this definition">#</a></dt>
 <dd><p>Generates Python dataclasses from a LinkML model</p>
 <p>See <a class="reference external" href="https://linkml.io/linkml/generators/python.html">Python Generator Docs</a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="linkml.generators.pythongen.PythonGenerator.serialize">
-<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#linkml.generators.pythongen.PythonGenerator.serialize" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#linkml.generators.pythongen.PythonGenerator.serialize" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate output in the required format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -619,10 +619,10 @@ Python base type.</p>
 </section>
 </section>
 <section id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading">¶</a></h2>
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="code-generation-for-linkml-slots">
-<h2>Code generation for LinkML slots<a class="headerlink" href="#code-generation-for-linkml-slots" title="Link to this heading">¶</a></h2>
+<h2>Code generation for LinkML slots<a class="headerlink" href="#code-generation-for-linkml-slots" title="Permalink to this heading">#</a></h2>
 <p>The generation of slot entries in class definitions is split into two
 parts:</p>
 <ul class="simple">
@@ -662,7 +662,7 @@ multi-valued (<code class="docutils literal notranslate"><span class="pre">multi
 </ul>
 <p>These various situations are described more detail below:</p>
 <section id="slot-range-is-a-linkml-type-definition">
-<h3>1) Slot range is a LinkML <code class="docutils literal notranslate"><span class="pre">type</span></code> definition<a class="headerlink" href="#slot-range-is-a-linkml-type-definition" title="Link to this heading">¶</a></h3>
+<h3>1) Slot range is a LinkML <code class="docutils literal notranslate"><span class="pre">type</span></code> definition<a class="headerlink" href="#slot-range-is-a-linkml-type-definition" title="Permalink to this heading">#</a></h3>
 <p>LinkML type definitions can take one of three forms:</p>
 <ul class="simple">
 <li><ol class="arabic simple">
@@ -687,7 +687,7 @@ these are outlined below</p>
 </ol>
 </section>
 <section id="python-generation-for-basic-python-type">
-<h3>2) Python generation for basic python Type.<a class="headerlink" href="#python-generation-for-basic-python-type" title="Link to this heading">¶</a></h3>
+<h3>2) Python generation for basic python Type.<a class="headerlink" href="#python-generation-for-basic-python-type" title="Permalink to this heading">#</a></h3>
 <p>For this example, we show basic permutations on the python
 <code class="docutils literal notranslate"><span class="pre">int</span></code> type as a base YAML:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">types</span><span class="p">:</span>
@@ -846,7 +846,7 @@ list:
 </ol>
 </section>
 <section id="python-generation-for-a-type-defined-in-metamodelcore-py-xsddate-in-this-example">
-<h3>3) Python generation for a Type defined in <code class="docutils literal notranslate"><span class="pre">metamodelcore.py</span></code> – <code class="docutils literal notranslate"><span class="pre">XSDDate</span></code> in this example<a class="headerlink" href="#python-generation-for-a-type-defined-in-metamodelcore-py-xsddate-in-this-example" title="Link to this heading">¶</a></h3>
+<h3>3) Python generation for a Type defined in <code class="docutils literal notranslate"><span class="pre">metamodelcore.py</span></code> – <code class="docutils literal notranslate"><span class="pre">XSDDate</span></code> in this example<a class="headerlink" href="#python-generation-for-a-type-defined-in-metamodelcore-py-xsddate-in-this-example" title="Permalink to this heading">#</a></h3>
 <p>YAML:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">types</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">date</span><span class="p">:</span>
@@ -933,7 +933,7 @@ class representing the element and the <code class="docutils literal notranslate
 </div>
 </section>
 <section id="python-generation-for-an-inherited-type">
-<h3>4) Python generation for an inherited Type<a class="headerlink" href="#python-generation-for-an-inherited-type" title="Link to this heading">¶</a></h3>
+<h3>4) Python generation for an inherited Type<a class="headerlink" href="#python-generation-for-an-inherited-type" title="Permalink to this heading">#</a></h3>
 <p>The following YAML shows three inherited types - one that inherits from
 a builtin type, a second from a metamodelcore type and a third from a
 the inherited type.</p>
@@ -1016,7 +1016,7 @@ basic (e.g. <code class="docutils literal notranslate"><span class="pre">int</s
 generated above for <code class="docutils literal notranslate"><span class="pre">XSDDate</span></code></p>
 </section>
 <section id="slot-range-is-a-linkml-class-definition">
-<h3>5) Slot range is a LinkML <code class="docutils literal notranslate"><span class="pre">class</span></code> definition<a class="headerlink" href="#slot-range-is-a-linkml-class-definition" title="Link to this heading">¶</a></h3>
+<h3>5) Slot range is a LinkML <code class="docutils literal notranslate"><span class="pre">class</span></code> definition<a class="headerlink" href="#slot-range-is-a-linkml-class-definition" title="Permalink to this heading">#</a></h3>
 <p>The previous section described the Python that was generated for slot
 ranges that reference LinkML <strong>Type</strong> definitions. This section
 addresses the second use case, where the slot range references another
@@ -1039,7 +1039,7 @@ attribute * The slot <code class="docutils literal notranslate"><span class="pre
 <p>Various permutations of these cases are described below:</p>
 </section>
 <section id="non-keyed-non-identified-classes">
-<h3>6) Non-keyed, non-identified classes<a class="headerlink" href="#non-keyed-non-identified-classes" title="Link to this heading">¶</a></h3>
+<h3>6) Non-keyed, non-identified classes<a class="headerlink" href="#non-keyed-non-identified-classes" title="Permalink to this heading">#</a></h3>
 <p>Classes without keys or identifiers cannot only be realized inline. The
 following code shows examples of various permutations of this type of
 class:</p>
@@ -1178,7 +1178,7 @@ as an error rather than converted to an empty list 3) An empty list is
 flagged as an error.</p>
 </section>
 <section id="keyed-or-identified-classes">
-<h3>Keyed or Identified Classes<a class="headerlink" href="#keyed-or-identified-classes" title="Link to this heading">¶</a></h3>
+<h3>Keyed or Identified Classes<a class="headerlink" href="#keyed-or-identified-classes" title="Permalink to this heading">#</a></h3>
 <p>When the range of a slot is a LinkML class that has a <code class="docutils literal notranslate"><span class="pre">key</span></code> or an
 <code class="docutils literal notranslate"><span class="pre">identifier</span></code>, additional options present themselves: 1) Should
 elements be represented inline or as references? 2) If inline, should
@@ -1186,7 +1186,7 @@ the elements be represented as lists or as dictionaries, whose key is
 the <code class="docutils literal notranslate"><span class="pre">key</span></code> or <code class="docutils literal notranslate"><span class="pre">identifier</span></code> value.</p>
 <p>We discuss each of these options below</p>
 <section id="key-or-identified-class-references">
-<h4>Key or identified class <em>references</em><a class="headerlink" href="#key-or-identified-class-references" title="Link to this heading">¶</a></h4>
+<h4>Key or identified class <em>references</em><a class="headerlink" href="#key-or-identified-class-references" title="Permalink to this heading">#</a></h4>
 <p>Using the following classes as building blocks</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">KeyedThreeElementClass</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A keyed class with an additional integer and date</span>
@@ -1401,7 +1401,7 @@ is no difference between keyed and identified class representation.</p>
 </section>
 </section>
 <section id="python-generation-options-for-single-value-non-list-slots">
-<h3>Python generation options for single-value (non-list) slots<a class="headerlink" href="#python-generation-options-for-single-value-non-list-slots" title="Link to this heading">¶</a></h3>
+<h3>Python generation options for single-value (non-list) slots<a class="headerlink" href="#python-generation-options-for-single-value-non-list-slots" title="Permalink to this heading">#</a></h3>
 <p>The table below describes the various python generation options for
 single-valued slots (<code class="docutils literal notranslate"><span class="pre">&quot;multivalued&quot;:</span> <span class="pre">false</span></code>)</p>
 <div class="table-wrapper docutils container">
@@ -1729,7 +1729,7 @@ of the class is the range of the <code class="docutils literal notranslate"><spa
 </div>
 </section>
 <section id="python-generation-options-for-multivalued-slots">
-<h3>Python generation options for multivalued slots<a class="headerlink" href="#python-generation-options-for-multivalued-slots" title="Link to this heading">¶</a></h3>
+<h3>Python generation options for multivalued slots<a class="headerlink" href="#python-generation-options-for-multivalued-slots" title="Permalink to this heading">#</a></h3>
 <p>The python generated for multivalued slots is a more interesting
 situation.</p>
 <div class="table-wrapper docutils container">
@@ -2015,7 +2015,7 @@ a value)</p>
 can either be in the form of a dictionary or a list.</p>
 </section>
 <section id="input-in-the-form-of-a-dictionary">
-<h3>Input in the form of a dictionary<a class="headerlink" href="#input-in-the-form-of-a-dictionary" title="Link to this heading">¶</a></h3>
+<h3>Input in the form of a dictionary<a class="headerlink" href="#input-in-the-form-of-a-dictionary" title="Permalink to this heading">#</a></h3>
 <p>If the input is in the form of a dictionary, its signature is
 “<code class="docutils literal notranslate"><span class="pre">Dict[Union[str,</span> <span class="pre">IdentifiedThreeElementClassName],</span> <span class="pre">Union[dict,</span> <span class="pre">IdentifiedThreeElementClass]]</span></code>”,
 that is a dictionary whose <em>keys</em> are valid
@@ -2080,7 +2080,7 @@ checking for potential link mismatches. The following code snippet:</p>
 expects a <code class="docutils literal notranslate"><span class="pre">KeyedThreeElementClassKey</span></code></p>
 </section>
 <section id="input-in-the-form-of-a-list">
-<h3>Input in the form of a list<a class="headerlink" href="#input-in-the-form-of-a-list" title="Link to this heading">¶</a></h3>
+<h3>Input in the form of a list<a class="headerlink" href="#input-in-the-form-of-a-list" title="Permalink to this heading">#</a></h3>
 <p>Starting with the skeleton we visited earlier, Moving inwards,
 <code class="docutils literal notranslate"><span class="pre">Union[Dict[...],</span> <span class="pre">List[...]]</span></code> the second option,
 <code class="docutils literal notranslate"><span class="pre">List[Union[dict,</span> <span class="pre">IdentifiedThreeElementClass]]</span></code> indicates that the
@@ -2203,7 +2203,7 @@ code is exactly the same – YAML emitted from a list structure can be
 loaded as a dictionary and visa-versa.</p>
 </section>
 <section id="slots">
-<h3>Slots<a class="headerlink" href="#slots" title="Link to this heading">¶</a></h3>
+<h3>Slots<a class="headerlink" href="#slots" title="Permalink to this heading">#</a></h3>
 <p>One bit that we haven’t touched on here is the <code class="docutils literal notranslate"><span class="pre">slots</span></code> section of the
 emitted Python.</p>
 <p>At the moment, the following code is emitted:</p>
@@ -2356,9 +2356,9 @@ eye on entries like <a class="reference external" href="https://github.com/linkm
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

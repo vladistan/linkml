@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>linkml.generators.common.build - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=135e06be" />
@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -368,9 +368,7 @@
 <span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="s2">&quot;BuildResult&quot;</span><span class="p">,</span> <span class="n">covariant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="SkipValidation">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SkipValidation">[docs]</a>
-<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">()</span>
+<div class="viewcode-block" id="SkipValidation"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SkipValidation">[docs]</a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">()</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">SkipValidation</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A version of :class:`pydantic.SkipValidation` that actually skips generating the</span>
@@ -388,10 +386,7 @@
     <span class="fm">__hash__</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__hash__</span></div>
 
 
-
-<div class="viewcode-block" id="BuildResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.BuildResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">BuildResult</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="BuildResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.BuildResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">BuildResult</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The result of any build phase for any linkML object</span>
 
@@ -403,77 +398,52 @@
 
     <span class="n">model_config</span> <span class="o">=</span> <span class="n">ConfigDict</span><span class="p">(</span><span class="n">arbitrary_types_allowed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BuildResult.merge">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.BuildResult.merge">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="BuildResult.merge"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.BuildResult.merge">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build results should have some means of merging results of a like kind</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This build result doesn&#39;t know how to merge!&quot;</span><span class="p">)</span></div>
-</div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;This build result doesn&#39;t know how to merge!&quot;</span><span class="p">)</span></div></div>
 
 
-
-<div class="viewcode-block" id="SchemaResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SchemaResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">SchemaResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="SchemaResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SchemaResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SchemaResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for built schemas&quot;&quot;&quot;</span>
 
     <span class="n">source</span><span class="p">:</span> <span class="n">SkipValidation</span><span class="p">[</span><span class="n">SchemaDefinition</span><span class="p">]</span>
 
-<div class="viewcode-block" id="SchemaResult.merge">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SchemaResult.merge">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="SchemaResult.merge"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SchemaResult.merge">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        SchemaResults are special and don&#39;t need a merge method, since generating</span>
 <span class="sd">        multiple schemas at once is not common or expected behavior for a generator.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;SchemaResult doesn&#39;t need a merge method, and none has been defined&quot;</span><span class="p">)</span></div>
-</div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;SchemaResult doesn&#39;t need a merge method, and none has been defined&quot;</span><span class="p">)</span></div></div>
 
 
-
-<div class="viewcode-block" id="ClassResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.ClassResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ClassResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="ClassResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.ClassResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ClassResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for built classes&quot;&quot;&quot;</span>
 
     <span class="n">source</span><span class="p">:</span> <span class="n">SkipValidation</span><span class="p">[</span><span class="n">ClassDefinition</span><span class="p">]</span></div>
 
 
-
-<div class="viewcode-block" id="SlotResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SlotResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">SlotResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="SlotResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.SlotResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">SlotResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for built slots&quot;&quot;&quot;</span>
 
     <span class="n">source</span><span class="p">:</span> <span class="n">SkipValidation</span><span class="p">[</span><span class="n">SlotDefinition</span><span class="p">]</span></div>
 
 
-
-<div class="viewcode-block" id="TypeResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.TypeResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">TypeResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="TypeResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.TypeResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TypeResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for built types&quot;&quot;&quot;</span>
 
     <span class="n">source</span><span class="p">:</span> <span class="n">SkipValidation</span><span class="p">[</span><span class="n">TypeDefinition</span><span class="p">]</span></div>
 
 
-
-<div class="viewcode-block" id="EnumResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.EnumResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">EnumResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="EnumResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.EnumResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">EnumResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for built enums&quot;&quot;&quot;</span>
 
     <span class="n">source</span><span class="p">:</span> <span class="n">SkipValidation</span><span class="p">[</span><span class="n">EnumDefinition</span><span class="p">]</span></div>
 
 
-
-<div class="viewcode-block" id="RangeResult">
-<a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.RangeResult">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">RangeResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
+<div class="viewcode-block" id="RangeResult"><a class="viewcode-back" href="../../../../generators/common/build.html#linkml.generators.common.build.RangeResult">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RangeResult</span><span class="p">(</span><span class="n">BuildResult</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract results container for just the range part of a slot&quot;&quot;&quot;</span></div>
-
 </pre></div>
         </article>
       </div>
@@ -506,9 +476,9 @@
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

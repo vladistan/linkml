@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Deprecating elements while maintaining PURLs and other URIs" href="deprecating-elements.html" /><link rel="prev" title="How to make a property graph schema" href="model-property-graphs.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>How to Generate AI prompts - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,9 +348,9 @@
         </div>
         <article role="main">
           <section id="how-to-generate-ai-prompts">
-<h1>How to Generate AI prompts<a class="headerlink" href="#how-to-generate-ai-prompts" title="Link to this heading">¶</a></h1>
+<h1>How to Generate AI prompts<a class="headerlink" href="#how-to-generate-ai-prompts" title="Permalink to this heading">#</a></h1>
 <section id="introduction-preamble">
-<h2>Introduction Preamble<a class="headerlink" href="#introduction-preamble" title="Link to this heading">¶</a></h2>
+<h2>Introduction Preamble<a class="headerlink" href="#introduction-preamble" title="Permalink to this heading">#</a></h2>
 <p>Generative AI exemplified by ChatGPT is a powerful but unreliable technology that can help with many different
 kinds of tasks:</p>
 <ul class="simple">
@@ -368,7 +368,7 @@ in OpenAI API requests. This is compatible with using LinkML to describe your da
 to auto-generate prompts using LinkML.</p>
 </section>
 <section id="objective">
-<h2>Objective<a class="headerlink" href="#objective" title="Link to this heading">¶</a></h2>
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
 <p>The idea here is to go from free text narrative or semi-structured text such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PERSONRECORD</span><span class="p">:</span> <span class="mi">1234</span>
 
@@ -406,13 +406,13 @@ framework for this kind of task at the end, but if you are coming here as a newb
 want to check out <a class="reference external" href="https://linkml.io/linkml/faq/why-linkml.html">Why LinkML?</a> in the FAQ.</p>
 </section>
 <section id="generating-prompts-from-linkml-schemas">
-<h2>Generating prompts from LinkML schemas<a class="headerlink" href="#generating-prompts-from-linkml-schemas" title="Link to this heading">¶</a></h2>
+<h2>Generating prompts from LinkML schemas<a class="headerlink" href="#generating-prompts-from-linkml-schemas" title="Permalink to this heading">#</a></h2>
 <p>The OpenAI function system uses OpenAPI specifications, which are essentially JSON-Schema.
 You could use the <a class="reference external" href="https://linkml.io/linkml/generators/json-schema.html">JSON Schema Generator</a> to generate
 the expected payload from a function, but this tutorial walks through the process of using Pydantic
 generated from LinkML schemas.</p>
 <section id="step-1-generate-pydantic-models-from-linkml">
-<h3>Step 1: Generate Pydantic models from LinkML<a class="headerlink" href="#step-1-generate-pydantic-models-from-linkml" title="Link to this heading">¶</a></h3>
+<h3>Step 1: Generate Pydantic models from LinkML<a class="headerlink" href="#step-1-generate-pydantic-models-from-linkml" title="Permalink to this heading">#</a></h3>
 <p>We will use the standard personinfo schema</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gen-pydantic<span class="w"> </span>examples/PersonSchema/personinfo.yaml<span class="w"> </span>&gt;<span class="w"> </span>personinfo.py
 </pre></div>
@@ -449,7 +449,7 @@ generated from LinkML schemas.</p>
 </div>
 </section>
 <section id="step-2-generate-a-prompt-from-the-pydantic-model">
-<h3>Step 2: Generate a prompt from the Pydantic model<a class="headerlink" href="#step-2-generate-a-prompt-from-the-pydantic-model" title="Link to this heading">¶</a></h3>
+<h3>Step 2: Generate a prompt from the Pydantic model<a class="headerlink" href="#step-2-generate-a-prompt-from-the-pydantic-model" title="Permalink to this heading">#</a></h3>
 <p>For this step you will need an OpenAI API key. You can get one from <a class="reference external" href="https://openai.com/">OpenAI</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">personinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">Person</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -502,7 +502,7 @@ But on other runs it does include this.</p>
 <p>Welcome to the world of LLMs!</p>
 </section>
 <section id="step-3-generating-a-python-object">
-<h3>Step 3: Generating a python object<a class="headerlink" href="#step-3-generating-a-python-object" title="Link to this heading">¶</a></h3>
+<h3>Step 3: Generating a python object<a class="headerlink" href="#step-3-generating-a-python-object" title="Permalink to this heading">#</a></h3>
 <p>As the last step you can do:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
 </pre></div>
@@ -510,7 +510,7 @@ But on other runs it does include this.</p>
 <p>Note you can also use standard LinkML tools to generate YAML, RDF, TSV, store in a SQL database, etc</p>
 </section>
 <section id="step-4-troubleshooting">
-<h3>Step 4: Troubleshooting<a class="headerlink" href="#step-4-troubleshooting" title="Link to this heading">¶</a></h3>
+<h3>Step 4: Troubleshooting<a class="headerlink" href="#step-4-troubleshooting" title="Permalink to this heading">#</a></h3>
 <p>Often the last step will fail because the generated JSON sometimes does not strictly conform to the schema.</p>
 <p>For example, sometimes the LLM is overly eager to fill in all slots, and rather than null/empty it may
 fill these in with empty strings:</p>
@@ -546,7 +546,7 @@ human-readable strings where there should be identifiers.</p>
 </ul>
 </section>
 <section id="providing-in-context-examples">
-<h3>Providing in-context examples<a class="headerlink" href="#providing-in-context-examples" title="Link to this heading">¶</a></h3>
+<h3>Providing in-context examples<a class="headerlink" href="#providing-in-context-examples" title="Permalink to this heading">#</a></h3>
 <p>LLMs often work better with in-context examples (“few shot learning”).</p>
 <p>Where should we get these examples from? If you are following LinkML modeling best practices,
 then you will have a set of examples in your model. You can use these to augment the prompt.</p>
@@ -560,7 +560,7 @@ library (see below).</p>
 </section>
 </section>
 <section id="further-exploration-text-extraction-with-ontogpt-and-spires">
-<h2>Further exploration: Text extraction with OntoGPT and SPIRES<a class="headerlink" href="#further-exploration-text-extraction-with-ontogpt-and-spires" title="Link to this heading">¶</a></h2>
+<h2>Further exploration: Text extraction with OntoGPT and SPIRES<a class="headerlink" href="#further-exploration-text-extraction-with-ontogpt-and-spires" title="Permalink to this heading">#</a></h2>
 <p>OntoGPT is a framework for combining LLMs with ontologies. It includes an implementation
 of the SPIRES algorithm for extracting structured data from text, using LinkML schemas. The approach
 taken differs from the above in two ways:</p>
@@ -578,7 +578,7 @@ Caufield, J.H. et al
 <a class="reference external" href="https://doi.org/10.48550/arXiv.2304.02711">doi.org/10.48550/arXiv.2304.02711</a></p>
 </section>
 <section id="other-use-cases">
-<h2>Other use cases<a class="headerlink" href="#other-use-cases" title="Link to this heading">¶</a></h2>
+<h2>Other use cases<a class="headerlink" href="#other-use-cases" title="Permalink to this heading">#</a></h2>
 <p>Extracting text is not the only use case for using LLMs with LinkML.</p>
 <p>Another example is combining GPT with a trusted database to increase its reliability. If the
 external database is described using LinkML, then we can build systems following patterns like
@@ -587,9 +587,9 @@ that combine the LLM with database lookups.</p>
 <p>Check back later for examples of this!</p>
 </section>
 <section id="questions">
-<h2>Questions<a class="headerlink" href="#questions" title="Link to this heading">¶</a></h2>
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this heading">#</a></h2>
 <section id="why-use-linkml-for-this">
-<h3>Why use LinkML for this?<a class="headerlink" href="#why-use-linkml-for-this" title="Link to this heading">¶</a></h3>
+<h3>Why use LinkML for this?<a class="headerlink" href="#why-use-linkml-for-this" title="Permalink to this heading">#</a></h3>
 <p>If you are not already a LinkML developer, you may be wondering why you should use LinkML for this,
 rather than do this directly with Pydantic. And for many purposes, doing this directly from Pydantic
 is a great solution! For some general reasons to use LinkML see <a class="reference external" href="https://linkml.io/linkml/faq/why-linkml.html">Why LinkML?</a>
@@ -604,7 +604,7 @@ Pydantic, rather than a replacement for them.</p>
 </ul>
 </section>
 <section id="can-i-use-llms-to-help-generate-schemas">
-<h3>Can I use LLMs to help generate schemas?<a class="headerlink" href="#can-i-use-llms-to-help-generate-schemas" title="Link to this heading">¶</a></h3>
+<h3>Can I use LLMs to help generate schemas?<a class="headerlink" href="#can-i-use-llms-to-help-generate-schemas" title="Permalink to this heading">#</a></h3>
 <p>Yes! LinkML is self-describing so the above methodology should be possible to generate a schema
 from semi-structured or textual sources, simply by using the metamodel as the schema!
 We haven’t done many experiments yet, but if successful we may incorporate into <a class="reference external" href="https://linkml.io/schema-automator/">schema-automator</a>.</p>
@@ -613,7 +613,7 @@ tools like tabnine) work surprisingly well as an autocomplete assistant when edi
 an IDE.</p>
 </section>
 <section id="aren-t-llms-unreliable">
-<h3>Aren’t LLMs unreliable?<a class="headerlink" href="#aren-t-llms-unreliable" title="Link to this heading">¶</a></h3>
+<h3>Aren’t LLMs unreliable?<a class="headerlink" href="#aren-t-llms-unreliable" title="Permalink to this heading">#</a></h3>
 <p>As a LinkML developer you likely care about precise modeling, and accurate representation of knowledge and data.
 LLMs may seem anathema to you! They are unreliable! They hallucinate! They give a different answer from
 one run to the next!</p>
@@ -717,9 +717,9 @@ landscape.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Part 2: Adding a container object" href="tutorial02.html" /><link rel="prev" title="Tutorial" href="tutorial.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Part 1: Creating your first LinkML schema - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="part-1-creating-your-first-linkml-schema">
-<h1>Part 1: Creating your first LinkML schema<a class="headerlink" href="#part-1-creating-your-first-linkml-schema" title="Link to this heading">¶</a></h1>
+<h1>Part 1: Creating your first LinkML schema<a class="headerlink" href="#part-1-creating-your-first-linkml-schema" title="Permalink to this heading">#</a></h1>
 <p>We assume that you already have LinkML <a class="reference internal" href="install.html"><span class="doc std std-doc">installed</span></a></p>
 <p>For the purposes of this tutorial, the simplest setup is to use a virtual environment, and then install linkml:</p>
 <!-- NO_EXECUTE -->
@@ -365,7 +365,7 @@ pip<span class="w"> </span>install<span class="w"> </span>linkml
 </div>
 <p>As always, you can consult the <a class="reference internal" href="../faq/index.html"><span class="doc std std-doc">FAQ</span></a> if you have issues.</p>
 <section id="your-first-schema">
-<h2>Your first schema<a class="headerlink" href="#your-first-schema" title="Link to this heading">¶</a></h2>
+<h2>Your first schema<a class="headerlink" href="#your-first-schema" title="Permalink to this heading">#</a></h2>
 <p>Our first schema consists of a single <em>class</em> <code class="docutils literal notranslate"><span class="pre">Person</span></code>, with a number of <em>slots</em>:</p>
 <p>First create a file</p>
 <p>personinfo.yaml:</p>
@@ -392,7 +392,7 @@ pip<span class="w"> </span>install<span class="w"> </span>linkml
 <p>(note that all files are available in the <a class="reference external" href="https://github.com/linkml/linkml/tree/main/examples/tutorial">examples/tutorial</a> folder of this repository)</p>
 </section>
 <section id="converting-to-json-schema">
-<h2>Converting to JSON-Schema<a class="headerlink" href="#converting-to-json-schema" title="Link to this heading">¶</a></h2>
+<h2>Converting to JSON-Schema<a class="headerlink" href="#converting-to-json-schema" title="Permalink to this heading">#</a></h2>
 <p>Now run the following command on the file you just created:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen-json-schema<span class="w"> </span>personinfo.yaml
 </pre></div>
@@ -452,7 +452,7 @@ pip<span class="w"> </span>install<span class="w"> </span>linkml
 <p>Don’t worry if you don’t know much about JSON-Schema. This is just an illustration that LinkML can be used in combination with a number of frameworks.</p>
 </section>
 <section id="creating-and-validating-data">
-<h2>Creating and validating data<a class="headerlink" href="#creating-and-validating-data" title="Link to this heading">¶</a></h2>
+<h2>Creating and validating data<a class="headerlink" href="#creating-and-validating-data" title="Permalink to this heading">#</a></h2>
 <p>Let’s create an example data file. The file will contain an <em>instance</em> of the class we defined in our <code class="docutils literal notranslate"><span class="pre">personinfo.yaml</span></code> schema:</p>
 <p>data.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ORCID:1234</span>
@@ -484,7 +484,7 @@ to this example and show how we could model this more naturally as a number.</p>
 <p>This should report an error to the effect that <code class="docutils literal notranslate"><span class="pre">made_up_field</span></code> is not allowed.</p>
 </section>
 <section id="working-with-json">
-<h2>Working with JSON<a class="headerlink" href="#working-with-json" title="Link to this heading">¶</a></h2>
+<h2>Working with JSON<a class="headerlink" href="#working-with-json" title="Permalink to this heading">#</a></h2>
 <p>One of the advantages of LinkML is the same datamodel can be used for multiple expressions of the same data, for example:</p>
 <ul class="simple">
 <li><p>YAML/JSON</p></li>
@@ -508,7 +508,7 @@ to this example and show how we could model this more naturally as a number.</p>
 </div>
 </section>
 <section id="converting-to-rdf">
-<h2>Converting to RDF<a class="headerlink" href="#converting-to-rdf" title="Link to this heading">¶</a></h2>
+<h2>Converting to RDF<a class="headerlink" href="#converting-to-rdf" title="Permalink to this heading">#</a></h2>
 <p>You can use the linkml convert tool to convert your data to other formats, including RDF:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>linkml-convert<span class="w"> </span>-s<span class="w"> </span>personinfo.yaml<span class="w"> </span>data.yaml<span class="w"> </span>-t<span class="w"> </span>ttl
 </pre></div>
@@ -534,7 +534,7 @@ is that we are not reusing standard URIs for our properties and
 classes. Don’t worry! We will get to this later.</p>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Extend the example schema to include fields for <code class="docutils literal notranslate"><span class="pre">occupation</span></code> and <code class="docutils literal notranslate"><span class="pre">employed_by</span></code></p></li>
 <li><p>Create a test data instance to indicate Clark Kent has an occupation of reporter and is employed by the Daily Planet</p></li>
@@ -542,7 +542,7 @@ classes. Don’t worry! We will get to this later.</p>
 </ol>
 </section>
 <section id="next-collections-of-data">
-<h2>Next: Collections of data<a class="headerlink" href="#next-collections-of-data" title="Link to this heading">¶</a></h2>
+<h2>Next: Collections of data<a class="headerlink" href="#next-collections-of-data" title="Permalink to this heading">#</a></h2>
 <p>Our toy example so far has a single person instance. Next we’ll see how to exchange lists of records.</p>
 </section>
 </section>
@@ -621,9 +621,9 @@ classes. Don’t worry! We will get to this later.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

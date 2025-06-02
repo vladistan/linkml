@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SchemaView" href="schemaview.html" /><link rel="prev" title="Manipulating Schemas" href="manipulating-schemas.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>How to Manage Releases of your LinkML Schema - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,12 +348,12 @@
         </div>
         <article role="main">
           <section id="how-to-manage-releases-of-your-linkml-schema">
-<h1>How to Manage Releases of your LinkML Schema<a class="headerlink" href="#how-to-manage-releases-of-your-linkml-schema" title="Link to this heading">¶</a></h1>
+<h1>How to Manage Releases of your LinkML Schema<a class="headerlink" href="#how-to-manage-releases-of-your-linkml-schema" title="Permalink to this heading">#</a></h1>
 <p>Making a schema release in LinkML can be streamlined and efficient if done correctly. This guide will walk you through the process, focusing on semantic versioning, using GitHub for release notes, and ensuring your releases are consistent and well-documented.</p>
 <p>Note: This guide assumes you use the <a class="reference internal" href="../howtos/linkml-project-cookiecutter.html"><span class="doc std std-doc">LinkML Cookiecutter</span></a> to seed your repository. If you did not,
 then you should still be able to adapt this guide to your workflow.</p>
 <section id="follow-semantic-versioning-semver">
-<h2>Follow Semantic Versioning (SemVer)<a class="headerlink" href="#follow-semantic-versioning-semver" title="Link to this heading">¶</a></h2>
+<h2>Follow Semantic Versioning (SemVer)<a class="headerlink" href="#follow-semantic-versioning-semver" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Version Format:</strong> Always use the <code class="docutils literal notranslate"><span class="pre">vX.X.X</span></code> format for your versions. This follows the <a class="reference external" href="https://semver.org/">Semantic Versioning Specification</a>, which is essential for maintaining clarity and consistency.</p></li>
 <li><p><strong>Version Types:</strong></p>
@@ -368,7 +368,7 @@ then you should still be able to adapt this guide to your workflow.</p>
 to your schema. See the <a class="reference external" href="https://github.com/HumanCellAtlas/metadata-schema/blob/master/docs/evolution.md#schema-versioning">HCA guidelines</a> for an example.</p>
 </section>
 <section id="using-github-for-release-notes">
-<h2>Using GitHub for Release Notes<a class="headerlink" href="#using-github-for-release-notes" title="Link to this heading">¶</a></h2>
+<h2>Using GitHub for Release Notes<a class="headerlink" href="#using-github-for-release-notes" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Automated Release Setup:</strong> A GitHub action should be pre-configured to automatically create releases</p>
 <ul class="simple">
@@ -406,14 +406,14 @@ to your schema. See the <a class="reference external" href="https://github.com/H
 </ol>
 </section>
 <section id="making-pre-releases">
-<h2>Making pre-releases<a class="headerlink" href="#making-pre-releases" title="Link to this heading">¶</a></h2>
+<h2>Making pre-releases<a class="headerlink" href="#making-pre-releases" title="Permalink to this heading">#</a></h2>
 <p>Sometimes you may want to make a pre-release. These should follow standard conventions:</p>
 <ul class="simple">
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">vX.Y.ZrcN</span></code> as the version, where this is the <code class="docutils literal notranslate"><span class="pre">N</span></code>th pre-release candidate for <code class="docutils literal notranslate"><span class="pre">X.Y.Z</span></code> (which is not yet released)</p></li>
 <li><p>Select “this is a pre-release” (this will automatically tag the PyPI release as a pre-release)</p></li>
 </ul>
 <section id="best-practices">
-<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h3>
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>PR Titles:</strong> Ensure these are descriptive yet concise. This is crucial as they are directly used in autogenerating release notes.</p></li>
 <li><p><strong>Regular Releases:</strong> Frequent releases help in maintaining a consistent and up-to-date package.</p></li>
@@ -422,10 +422,10 @@ to your schema. See the <a class="reference external" href="https://github.com/H
 </section>
 </section>
 <section id="database-migrations-and-their-role-in-releases">
-<h2>Database Migrations and Their Role in Releases<a class="headerlink" href="#database-migrations-and-their-role-in-releases" title="Link to this heading">¶</a></h2>
+<h2>Database Migrations and Their Role in Releases<a class="headerlink" href="#database-migrations-and-their-role-in-releases" title="Permalink to this heading">#</a></h2>
 <p>Database migrations are a critical aspect of managing and releasing updates in any software that relies on a database. They ensure that changes to the database schema and data are applied in a consistent, reliable, and reversible manner. When accompanying releases, database migrations play a key role in maintaining the integrity and performance of the application. Here’s how to effectively incorporate database migrations into your release process:</p>
 <section id="understanding-database-migrations">
-<h3>Understanding Database Migrations<a class="headerlink" href="#understanding-database-migrations" title="Link to this heading">¶</a></h3>
+<h3>Understanding Database Migrations<a class="headerlink" href="#understanding-database-migrations" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Definition:</strong> A database migration refers to the process of moving from one version of a database schema to another, typically when the application code requires changes to the database structure or data.</p></li>
 <li><p><strong>Purpose:</strong> Migrations are essential for:</p>
@@ -438,7 +438,7 @@ to your schema. See the <a class="reference external" href="https://github.com/H
 </ol>
 </section>
 <section id="integrating-migrations-in-releases">
-<h3>Integrating Migrations in Releases<a class="headerlink" href="#integrating-migrations-in-releases" title="Link to this heading">¶</a></h3>
+<h3>Integrating Migrations in Releases<a class="headerlink" href="#integrating-migrations-in-releases" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Synchronizing with Code Changes:</strong></p>
 <ul class="simple">
@@ -479,7 +479,7 @@ to your schema. See the <a class="reference external" href="https://github.com/H
 </ol>
 </section>
 <section id="id1">
-<h3>Best Practices<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<h3>Best Practices<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Reversible Migrations:</strong> Design migrations so they can be reversed without data loss. This is crucial for quick rollbacks in case of issues.</p></li>
 <li><p><strong>Incremental Changes:</strong> Prefer small, incremental changes over large, complex migrations. This approach reduces risk and makes troubleshooting easier.</p></li>
@@ -488,12 +488,12 @@ to your schema. See the <a class="reference external" href="https://github.com/H
 </ul>
 </section>
 <section id="conclusion">
-<h3>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h3>
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
 <p>Database migrations are a vital component of a well-managed release process. By carefully planning, testing, and documenting these migrations, you can ensure smooth and successful releases that maintain the integrity and performance of your database-dependent applications.</p>
 </section>
 </section>
 <section id="id2">
-<h2>Conclusion<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>Following these guidelines ensures that your LinkML schema releases are efficient, consistent, and well-documented. Always remember the importance of semantic versioning and clear communication through your PR and issue titles.</p>
 </section>
 </section>
@@ -579,9 +579,9 @@ to your schema. See the <a class="reference external" href="https://github.com/H
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

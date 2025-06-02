@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Part 7: Slots and inheritance" href="tutorial07.html" /><link rel="prev" title="Part 5: Using Python dataclasses" href="tutorial05.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Part 6: Enumerations - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,7 +348,7 @@
         </div>
         <article role="main">
           <section id="part-6-enumerations">
-<h1>Part 6: Enumerations<a class="headerlink" href="#part-6-enumerations" title="Link to this heading">¶</a></h1>
+<h1>Part 6: Enumerations<a class="headerlink" href="#part-6-enumerations" title="Permalink to this heading">#</a></h1>
 <p>Now we will extend our schema with a new slot <code class="docutils literal notranslate"><span class="pre">status</span></code> which records the vital status of a person, i.e whether they are living or dead.</p>
 <p>We could do this by making the range of <code class="docutils literal notranslate"><span class="pre">status</span></code> a string, and
 allowing the data provider to fill this with any value. However, this
@@ -450,7 +450,7 @@ will result in messy data that will need to cleaned up before any analysis is pe
 </pre></div>
 </div>
 <section id="mapping-enums-to-vocabularies">
-<h2>Mapping Enums to vocabularies<a class="headerlink" href="#mapping-enums-to-vocabularies" title="Link to this heading">¶</a></h2>
+<h2>Mapping Enums to vocabularies<a class="headerlink" href="#mapping-enums-to-vocabularies" title="Permalink to this heading">#</a></h2>
 <p>We will now enhance our enums and map the different values to terms
 from vocabularies or ontologies. This doesn’t affect the basic
 behavior of tools that use the schema - however, it does provide a
@@ -546,7 +546,7 @@ generated RDF.</p>
 <!-- TODO: RDF docs -->
 </section>
 <section id="use-in-python">
-<h2>Use in Python<a class="headerlink" href="#use-in-python" title="Link to this heading">¶</a></h2>
+<h2>Use in Python<a class="headerlink" href="#use-in-python" title="Permalink to this heading">#</a></h2>
 <p>(you can skip this section if you are not concerned with interacting with data instances via Python)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gen-python<span class="w"> </span>personinfo-mapped.yaml<span class="w"> </span>&gt;<span class="w"> </span>personinfo.py
 </pre></div>
@@ -571,7 +571,7 @@ MEANING=http://purl.obolibrary.org/obo/PATO_0001422
 <p>Next we will explore more aspects of the modeling language</p>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../schemas/models.html#enums"><span class="std std-ref">LinkML Schemas: Enums</span></a></p></li>
 <li><p>Metamodel Specification</p>
@@ -658,9 +658,9 @@ MEANING=http://purl.obolibrary.org/obo/PATO_0001422
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

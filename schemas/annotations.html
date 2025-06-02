@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="The metamodel" href="metamodel.html" /><link rel="prev" title="Derived models" href="derived-models.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Annotations - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,9 +348,9 @@
         </div>
         <article role="main">
           <section id="annotations">
-<h1>Annotations<a class="headerlink" href="#annotations" title="Link to this heading">¶</a></h1>
+<h1>Annotations<a class="headerlink" href="#annotations" title="Permalink to this heading">#</a></h1>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>The LinkML model provides a fixed set of metamodel slots which can be applied to any schema element.</p>
 <p>Examples of these are:</p>
 <ul class="simple">
@@ -377,7 +377,7 @@ the LinkML metamodel has a generic <a class="reference external" href="https://w
 to assign arbitrary tags and values to any schema element.</p>
 </section>
 <section id="adding-your-own-annotations">
-<h2>Adding your own annotations<a class="headerlink" href="#adding-your-own-annotations" title="Link to this heading">¶</a></h2>
+<h2>Adding your own annotations<a class="headerlink" href="#adding-your-own-annotations" title="Permalink to this heading">#</a></h2>
 <p>In the above case, we can add the <code class="docutils literal notranslate"><span class="pre">review</span></code> annotation to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> class like this:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
@@ -393,7 +393,7 @@ usually written in <em>compact form</em> as <code class="docutils literal notran
 the range can be any object.</p>
 </section>
 <section id="annotation-validation">
-<h2>Annotation validation<a class="headerlink" href="#annotation-validation" title="Link to this heading">¶</a></h2>
+<h2>Annotation validation<a class="headerlink" href="#annotation-validation" title="Permalink to this heading">#</a></h2>
 <p>By default, all annotation tags and values are valid. Feel free to add whatever annotations you like
 to any schema element - classes, enums, permissible values, slots, even schemas themselves.</p>
 <p>However, if you want to restrict the set of valid annotations, you can do this starting from LinkMK 1.6,
@@ -404,7 +404,7 @@ the <code class="docutils literal notranslate"><span class="pre">instantiates</s
 stating that this class is an instance of the <code class="docutils literal notranslate"><span class="pre">Reviewable</span></code> metamodel extension class:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mymetamodel:Reviewable</span>
 <span class="w">    </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">review</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A very useful class that is well defined</span>
@@ -431,7 +431,7 @@ attached to schema elements via annotations.</p>
 <p>Other schema elements can also instantiate the <code class="docutils literal notranslate"><span class="pre">Reviewable</span></code> class:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mymetamodel:Reviewable</span>
 <span class="w">    </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">review</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A very useful class that is well defined</span>
@@ -449,7 +449,7 @@ attached to schema elements via annotations.</p>
 instance of <code class="docutils literal notranslate"><span class="pre">Person</span></code> may have. The <code class="docutils literal notranslate"><span class="pre">annotations</span></code> section pertains to the <em>class</em> Person, not instances.</p>
 </section>
 <section id="validation-of-annotations">
-<h2>Validation of annotations<a class="headerlink" href="#validation-of-annotations" title="Link to this heading">¶</a></h2>
+<h2>Validation of annotations<a class="headerlink" href="#validation-of-annotations" title="Permalink to this heading">#</a></h2>
 <p>If a schema element does not instantiate a metamodel extension class, then any annotation tag is valid.
 (this is already the case for all pre 1.6 schemas, since the <code class="docutils literal notranslate"><span class="pre">instantiates</span></code> slot is not defined in previous
 versions of the metamodel).</p>
@@ -460,7 +460,7 @@ first-class slots, and instantiates value was a mixin.</p>
 intent, but does not yet enforce validation.</p>
 </section>
 <section id="other-uses-of-instantiates">
-<h2>Other uses of instantiates<a class="headerlink" href="#other-uses-of-instantiates" title="Link to this heading">¶</a></h2>
+<h2>Other uses of instantiates<a class="headerlink" href="#other-uses-of-instantiates" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">instantiates</span></code> slot can also be used constrain rather than extend.</p>
 <p>For example, to define a <em>strict</em> metamodel element that must have a description:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://example.org/mymetamodel/</span>
@@ -477,7 +477,7 @@ intent, but does not yet enforce validation.</p>
 <p>Any schema element that instantiates <code class="docutils literal notranslate"><span class="pre">StrictElement</span></code> must have a description:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">instantiates</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mymetamodel:StrictElement</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A person, living or dead</span><span class="w">   </span><span class="c1">## must be provided</span>
 </pre></div>
@@ -557,9 +557,9 @@ intent, but does not yet enforce validation.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

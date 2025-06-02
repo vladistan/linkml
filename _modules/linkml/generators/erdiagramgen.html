@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>linkml.generators.erdiagramgen - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -454,9 +454,7 @@
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;erDiagram</span><span class="se">\n</span><span class="si">{</span><span class="n">ents</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">rels</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
 
 
-<div class="viewcode-block" id="ERDiagramGenerator">
-<a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator">[docs]</a>
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="ERDiagramGenerator"><a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">ERDiagramGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A generator for serializing schemas as Entity-Relationship diagrams.</span>
@@ -489,9 +487,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">schemaview</span> <span class="o">=</span> <span class="n">SchemaView</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__post_init__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="ERDiagramGenerator.serialize">
-<a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator.serialize">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MERMAID_SERIALIZATION</span><span class="p">:</span>
+<div class="viewcode-block" id="ERDiagramGenerator.serialize"><a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator.serialize">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MERMAID_SERIALIZATION</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Serialize a schema as an ER Diagram.</span>
 
@@ -510,10 +506,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">add_class</span><span class="p">(</span><span class="n">cn</span><span class="p">,</span> <span class="n">diagram</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">serialize_diagram</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="ERDiagramGenerator.serialize_classes">
-<a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator.serialize_classes">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">serialize_classes</span><span class="p">(</span>
+<div class="viewcode-block" id="ERDiagramGenerator.serialize_classes"><a class="viewcode-back" href="../../../generators/erdiagram.html#linkml.generators.erdiagramgen.ERDiagramGenerator.serialize_classes">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">serialize_classes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">class_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ClassDefinitionName</span><span class="p">]],</span>
         <span class="n">follow_references</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -561,7 +554,6 @@
                         <span class="k">if</span> <span class="n">slot</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">sv</span><span class="o">.</span><span class="n">get_class</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span><span class="o">.</span><span class="n">slots</span> <span class="ow">and</span> <span class="n">cl</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
                             <span class="bp">self</span><span class="o">.</span><span class="n">add_upstream_class</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">class_names</span><span class="p">),</span> <span class="n">diagram</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">serialize_diagram</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span></div>
-
 
     <span class="k">def</span><span class="w"> </span><span class="nf">serialize_diagram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diagram</span><span class="p">:</span> <span class="n">ERDiagram</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -646,7 +638,6 @@
             <span class="n">dt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2">List&quot;</span>
         <span class="n">attr</span> <span class="o">=</span> <span class="n">Attribute</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">underscore</span><span class="p">(</span><span class="n">slot</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">datatype</span><span class="o">=</span><span class="n">dt</span><span class="p">)</span>
         <span class="n">entity</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span></div>
-
 
 
 <span class="nd">@shared_arguments</span><span class="p">(</span><span class="n">ERDiagramGenerator</span><span class="p">)</span>
@@ -737,9 +728,9 @@
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

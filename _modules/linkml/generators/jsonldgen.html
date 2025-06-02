@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>linkml.generators.jsonldgen - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -376,9 +376,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">linkml.utils.generator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generator</span><span class="p">,</span> <span class="n">shared_arguments</span>
 
 
-<div class="viewcode-block" id="JSONLDGenerator">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator">[docs]</a>
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="JSONLDGenerator"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">JSONLDGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generates JSON-LD from a Schema</span>
@@ -462,9 +460,7 @@
             <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="JSONLDGenerator.adjust_slot">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.adjust_slot">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slot</span><span class="p">:</span> <span class="n">SlotDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.adjust_slot"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.adjust_slot">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slot</span><span class="p">:</span> <span class="n">SlotDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">slot</span><span class="o">.</span><span class="n">range</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">classes</span><span class="p">:</span>
             <span class="n">slot</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="n">ClassDefinitionName</span><span class="p">(</span><span class="n">camelcase</span><span class="p">(</span><span class="n">slot</span><span class="o">.</span><span class="n">range</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">slot</span><span class="o">.</span><span class="n">range</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">slots</span><span class="p">:</span>
@@ -482,10 +478,7 @@
         <span class="p">]:</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="o">.</span><span class="n">uri_for</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">f</span><span class="p">)])</span></div>
 
-
-<div class="viewcode-block" id="JSONLDGenerator.visit_class">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_class">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">visit_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">ClassDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.visit_class"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_class">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">visit_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">ClassDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_visit</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
         <span class="bp">cls</span><span class="o">.</span><span class="n">class_uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="o">.</span><span class="n">uri_for</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">class_uri</span><span class="p">)</span>
         <span class="c1"># Slot usage is a construction artifact</span>
@@ -493,30 +486,18 @@
         <span class="bp">cls</span><span class="o">.</span><span class="n">slot_usage</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">return</span> <span class="kc">False</span></div>
 
-
-<div class="viewcode-block" id="JSONLDGenerator.visit_slot">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_slot">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">visit_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aliased_slot_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">slot</span><span class="p">:</span> <span class="n">SlotDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.visit_slot"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_slot">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">visit_slot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aliased_slot_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">slot</span><span class="p">:</span> <span class="n">SlotDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_visit</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">adjust_slot</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="JSONLDGenerator.visit_type">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_type">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">visit_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="p">:</span> <span class="n">TypeDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.visit_type"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_type">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">visit_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typ</span><span class="p">:</span> <span class="n">TypeDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_visit</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span>
         <span class="n">typ</span><span class="o">.</span><span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespaces</span><span class="o">.</span><span class="n">uri_for</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="JSONLDGenerator.visit_subset">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_subset">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">visit_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ss</span><span class="p">:</span> <span class="n">SubsetDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.visit_subset"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.visit_subset">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">visit_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ss</span><span class="p">:</span> <span class="n">SubsetDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_visit</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="JSONLDGenerator.end_schema">
-<a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.end_schema">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">end_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="JSONLDGenerator.end_schema"><a class="viewcode-back" href="../../../generators/jsonld.html#linkml.generators.jsonldgen.JSONLDGenerator.end_schema">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">end_schema</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_add_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
         <span class="n">base_prefix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_prefix</span><span class="p">()</span>
 
@@ -553,9 +534,7 @@
         <span class="c1"># json_obj[&quot;@id&quot;] = self.schema.id</span>
         <span class="n">out</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">as_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schema</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;  &quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_schema</span>
-        <span class="k">return</span> <span class="n">out</span></div>
-</div>
-
+        <span class="k">return</span> <span class="n">out</span></div></div>
 
 
 <span class="nd">@shared_arguments</span><span class="p">(</span><span class="n">JSONLDGenerator</span><span class="p">)</span>
@@ -608,9 +587,9 @@
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

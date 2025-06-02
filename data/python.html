@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with data in SQL Databases" href="sql-databases.html" /><link rel="prev" title="CSVs and Tabular Data" href="csvs.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Python - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,9 +348,9 @@
         </div>
         <article role="main">
           <section id="python">
-<h1>Python<a class="headerlink" href="#python" title="Link to this heading">¶</a></h1>
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
 <section id="dataclasses">
-<h2>Dataclasses<a class="headerlink" href="#dataclasses" title="Link to this heading">¶</a></h2>
+<h2>Dataclasses<a class="headerlink" href="#dataclasses" title="Permalink to this heading">#</a></h2>
 <p>Python dataclasses can be generated from any LinkML model (see <a class="reference internal" href="../generators/python.html"><span class="doc std std-doc">generators/python</span></a>).</p>
 <p>For example, for the personinfo schema, a Person dataclass is created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
@@ -381,7 +381,7 @@
 <p>The generated python classes have additional functionality to help with serializing/deserializing.</p>
 </section>
 <section id="use-in-programs">
-<h2>Use in programs<a class="headerlink" href="#use-in-programs" title="Link to this heading">¶</a></h2>
+<h2>Use in programs<a class="headerlink" href="#use-in-programs" title="Permalink to this heading">#</a></h2>
 <p>This can be used for programmatic manipulation, e.g:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">personinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">Person</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;joe schmoe&#39;</span><span class="p">)</span>
@@ -389,7 +389,7 @@
 </div>
 </section>
 <section id="loaders-and-dumpers">
-<h2>Loaders and dumpers<a class="headerlink" href="#loaders-and-dumpers" title="Link to this heading">¶</a></h2>
+<h2>Loaders and dumpers<a class="headerlink" href="#loaders-and-dumpers" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://github.com/linkml/linkml-runtime">linkml-runtime</a> framework is included by default, allowing for dynamic conversion to and from other formats:</p>
 <p>The core LinkML formats are:</p>
 <ul class="simple">
@@ -490,9 +490,9 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

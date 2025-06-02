@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Type designators" href="type-designators.html" /><link rel="prev" title="Inlining objects" href="inlining.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Adding constraints and rules - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,10 +348,10 @@
         </div>
         <article role="main">
           <section id="adding-constraints-and-rules">
-<h1>Adding constraints and rules<a class="headerlink" href="#adding-constraints-and-rules" title="Link to this heading">¶</a></h1>
+<h1>Adding constraints and rules<a class="headerlink" href="#adding-constraints-and-rules" title="Permalink to this heading">#</a></h1>
 <p>In addition to the basic <a class="reference internal" href="slots.html"><span class="doc std std-doc">cardinality</span></a> constraints for slots, additional constraints can be specified</p>
 <section id="unique-key">
-<h2>Unique Key<a class="headerlink" href="#unique-key" title="Link to this heading">¶</a></h2>
+<h2>Unique Key<a class="headerlink" href="#unique-key" title="Permalink to this heading">#</a></h2>
 <p>A class can declare <a class="reference external" href="https://w3id.org/linkml/unique_keys">unique_keys</a>, a set of slots that are unique for members of that class.</p>
 <p>For example, a database of chemical entities may with to declare the tuple of atomic number and neutron number
 as a unique key for an isotope:</p>
@@ -364,7 +364,7 @@ as a unique key for an isotope:</p>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">neutron_number</span>
 <span class="w">  </span><span class="nt">ChemicalElement</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChemicalEntity</span>
-<span class="w">    </span>
+
 <span class="w">  </span><span class="nt">Isotope</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChemicalEntity</span>
 <span class="w">    </span><span class="nt">unique_keys</span><span class="p">:</span>
@@ -384,7 +384,7 @@ as a unique key for an isotope:</p>
 <p><a class="reference external" href="https://w3id.org/linkml/identifier">identifier</a>s are special cases of unique keys.</p>
 </section>
 <section id="string-serialization">
-<h2>String serialization<a class="headerlink" href="#string-serialization" title="Link to this heading">¶</a></h2>
+<h2>String serialization<a class="headerlink" href="#string-serialization" title="Permalink to this heading">#</a></h2>
 <p>A rule for generating the string value of a slot can be specified as a <a class="reference external" href="https://w3id.org/linkml/string_serialization">string_serialization</a></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
@@ -410,7 +410,7 @@ as a unique key for an isotope:</p>
 </ul>
 </section>
 <section id="patterns">
-<h2>Patterns<a class="headerlink" href="#patterns" title="Link to this heading">¶</a></h2>
+<h2>Patterns<a class="headerlink" href="#patterns" title="Permalink to this heading">#</a></h2>
 <p>The value of a slot can be constrained to conform to a particular string pattern using the <a class="reference external" href="https://w3id.org/linkml/pattern">pattern</a> metaslot</p>
 <p>Example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">slots</span><span class="p">:</span>
@@ -424,7 +424,7 @@ as a unique key for an isotope:</p>
 </ul>
 </section>
 <section id="structured-patterns">
-<h2>Structured patterns<a class="headerlink" href="#structured-patterns" title="Link to this heading">¶</a></h2>
+<h2>Structured patterns<a class="headerlink" href="#structured-patterns" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://w3id.org/linkml/structured_pattern">structured_pattern</a> construct
 allows you to provide patterns in a more structured way, and to <em>reuse</em> sub-patterns.</p>
 <p>First you declare the patterns to be reused in the top level of your schema:</p>
@@ -446,7 +446,7 @@ allows you to provide patterns in a more structured way, and to <em>reuse</em> s
 <p>You can use <a class="reference internal" href="../generators/linkml.html"><span class="doc std std-doc">gen-linkml</span></a> to expand these into structured patterns</p>
 </section>
 <section id="minimum-and-maximum-values">
-<h2>Minimum and Maximum values<a class="headerlink" href="#minimum-and-maximum-values" title="Link to this heading">¶</a></h2>
+<h2>Minimum and Maximum values<a class="headerlink" href="#minimum-and-maximum-values" title="Permalink to this heading">#</a></h2>
 <p>Any numeric value can have minimum and maximum values specified</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://w3id.org/linkml/minimum_value">minimum_value</a></p></li>
@@ -454,7 +454,7 @@ allows you to provide patterns in a more structured way, and to <em>reuse</em> s
 </ul>
 </section>
 <section id="expressions-and-other-advanced-features">
-<h2>Expressions and other advanced features<a class="headerlink" href="#expressions-and-other-advanced-features" title="Link to this heading">¶</a></h2>
+<h2>Expressions and other advanced features<a class="headerlink" href="#expressions-and-other-advanced-features" title="Permalink to this heading">#</a></h2>
 <p>The above describes the core constraint feature. See the <a class="reference internal" href="advanced.html"><span class="std std-doc">advanced features guide</span></a> for more on how
 to write rules and expressions for more expressive constraints.</p>
 </section>
@@ -533,9 +533,9 @@ to write rules and expressions for more expressive constraints.</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Part 8: Generating Projects" href="tutorial08.html" /><link rel="prev" title="Part 6: Enumerations" href="tutorial06.html" />
 
-    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.4.7 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="https://linkml.io/uploads/linkml-logo_color-no-words.png"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Part 7: Slots and inheritance - linkml documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=b029f2e4" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=8a1ccf7d" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/common.css?v=95000900" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/notebooks.css?v=1ce917dd" />
     
     
 
@@ -348,9 +348,9 @@
         </div>
         <article role="main">
           <section id="part-7-slots-and-inheritance">
-<h1>Part 7: Slots and inheritance<a class="headerlink" href="#part-7-slots-and-inheritance" title="Link to this heading">¶</a></h1>
+<h1>Part 7: Slots and inheritance<a class="headerlink" href="#part-7-slots-and-inheritance" title="Permalink to this heading">#</a></h1>
 <section id="slots-and-attributes">
-<h2>Slots and attributes<a class="headerlink" href="#slots-and-attributes" title="Link to this heading">¶</a></h2>
+<h2>Slots and attributes<a class="headerlink" href="#slots-and-attributes" title="Permalink to this heading">#</a></h2>
 <p>Previously we have seen examples of schemas that declare fields/slots using an <code class="docutils literal notranslate"><span class="pre">attributes</span></code> slot under the relevant class.</p>
 <p>In LinkML, “slots” (aka fields) are first-class entities that can be
 declared outside of classes. The attribute syntax is just a convenient
@@ -361,7 +361,7 @@ for reuse.</p>
 <p>personinfo.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span>
-<span class="nt">prefixes</span><span class="p">:</span><span class="w">                                 </span>
+<span class="nt">prefixes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span>
 <span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://schema.org/</span>
 <span class="w">  </span><span class="nt">personinfo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo/</span>
@@ -369,10 +369,10 @@ for reuse.</p>
 <span class="nt">imports</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:types</span>
 <span class="nt">default_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span>
+
 <span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span><span class="w">             </span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w">   </span><span class="c1">## specified as a list</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full_name</span>
@@ -404,7 +404,7 @@ for reuse.</p>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">other names for the person</span>
 <span class="w">  </span><span class="nt">phone</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^[\\d\\(\\)\\-]+$&quot;</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:telephone</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:telephone</span>
 <span class="w">  </span><span class="nt">age</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
@@ -423,7 +423,7 @@ for reuse.</p>
 <p>See <a class="reference internal" href="../faq/modeling.html#when-should-i-use-attributes-vs-slots"><span class="std std-ref">FAQ: attributes vs slots</span></a></p>
 </section>
 <section id="inheritance">
-<h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading">¶</a></h2>
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">#</a></h2>
 <p>Now let’s say we want to extend the schema, and we want to include
 another class <code class="docutils literal notranslate"><span class="pre">Organization</span></code>. Organizations may have different
 properties from people, but they may also share slots in common - for
@@ -433,7 +433,7 @@ example, having a unique identifier and a name</p>
 <p>personinfo-with-inheritance.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span>
-<span class="nt">prefixes</span><span class="p">:</span><span class="w">                                 </span>
+<span class="nt">prefixes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span>
 <span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://schema.org/</span>
 <span class="w">  </span><span class="nt">personinfo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo/</span>
@@ -441,7 +441,7 @@ example, having a unique identifier and a name</p>
 <span class="nt">imports</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:types</span>
 <span class="nt">default_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span>
+
 <span class="nt">classes</span><span class="p">:</span>
 
 <span class="w">  </span><span class="c1">## --</span>
@@ -449,17 +449,17 @@ example, having a unique identifier and a name</p>
 <span class="w">  </span><span class="c1">## --</span>
 <span class="w">  </span><span class="nt">NamedThing</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">     </span><span class="c1">## should not be instantiated directly</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full_name</span>
 <span class="w">    </span><span class="nt">close_mappings</span><span class="p">:</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Thing</span>
-<span class="w">  </span>
+
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NamedThing</span><span class="w">  </span><span class="c1">## inheritance</span>
 <span class="w">    </span><span class="nt">mixins</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HasAliases</span>
-<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span><span class="w">             </span>
+<span class="w">    </span><span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Person</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w">            </span><span class="c1">## note we only have slots specific to people</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">phone</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">age</span>
@@ -475,7 +475,7 @@ example, having a unique identifier and a name</p>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HasAliases</span>
 <span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mission_statement</span>
-<span class="w">      </span>
+
 <span class="w">  </span><span class="nt">Container</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">attributes</span><span class="p">:</span>
@@ -515,7 +515,7 @@ example, having a unique identifier and a name</p>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">other names for the person</span>
 <span class="w">  </span><span class="nt">phone</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;^[\\d\\(\\)\\-]+$&quot;</span>
-<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:telephone</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:telephone</span>
 <span class="w">  </span><span class="nt">age</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
@@ -573,21 +573,21 @@ example, having a unique identifier and a name</p>
 </div>
 </section>
 <section id="customizing-slots-in-the-context-of-classes-slot-usage">
-<h2>Customizing slots in the context of classes: Slot Usage<a class="headerlink" href="#customizing-slots-in-the-context-of-classes-slot-usage" title="Link to this heading">¶</a></h2>
+<h2>Customizing slots in the context of classes: Slot Usage<a class="headerlink" href="#customizing-slots-in-the-context-of-classes-slot-usage" title="Permalink to this heading">#</a></h2>
 <p>LinkML gives you the ability to reuse or inherit slots while customizing them for use in a particular class, using <code class="docutils literal notranslate"><span class="pre">slot_usage</span></code></p>
 <p>First let’s create a schema where we introduce a new general class <code class="docutils literal notranslate"><span class="pre">Relationship</span></code></p>
 <p>slot-usage-example.yaml:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/examples/personinfo</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personinfo</span>
-<span class="nt">prefixes</span><span class="p">:</span><span class="w">                                 </span>
+<span class="nt">prefixes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">linkml</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://w3id.org/linkml/</span>
 <span class="nt">imports</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linkml:types</span>
 <span class="nt">default_range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">  </span>
+
 <span class="nt">classes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">NamedThing</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full_name</span>
 <span class="w">  </span><span class="nt">Person</span><span class="p">:</span>
@@ -601,7 +601,7 @@ example, having a unique identifier and a name</p>
 <span class="w">        </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OrganizationalRelationship</span>
 <span class="w">        </span><span class="nt">inlined_as_list</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span>
+
 <span class="w">  </span><span class="nt">Organization</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NamedThing</span>
 
@@ -622,7 +622,7 @@ example, having a unique identifier and a name</p>
 <span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">      </span><span class="nt">relationship_type</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FamilialRelationshipType</span>
-<span class="w">      </span>
+
 
 <span class="w">  </span><span class="nt">OrganizationalRelationship</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Relationship</span>
@@ -765,9 +765,9 @@ example, having a unique identifier and a name</p>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
