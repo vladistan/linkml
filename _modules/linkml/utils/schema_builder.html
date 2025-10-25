@@ -307,6 +307,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../howtos/generate-ai-prompts.html">How to Generate AI prompts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../howtos/deprecating-elements.html">Deprecating elements while maintaining PURLs and other URIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../howtos/ontologies-as-values.html">Using ontology terms as values in data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../howtos/skip-logic.html">How to implement skip logic in LinkML</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples of use</a></li>
@@ -600,6 +601,8 @@
             <span class="k">for</span> <span class="n">pv</span> <span class="ow">in</span> <span class="n">permissible_values</span><span class="p">:</span>
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                     <span class="n">pv</span> <span class="o">=</span> <span class="n">PermissibleValue</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">pv</span><span class="p">)</span>
+                    <span class="n">enum_def</span><span class="o">.</span><span class="n">permissible_values</span><span class="p">[</span><span class="n">pv</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">pv</span>
+                <span class="k">else</span><span class="p">:</span>
                     <span class="n">enum_def</span><span class="o">.</span><span class="n">permissible_values</span><span class="p">[</span><span class="n">pv</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="n">pv</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
