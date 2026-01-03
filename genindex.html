@@ -307,6 +307,7 @@
 <li class="toctree-l1"><a class="reference internal" href="contributing/contributing.html">Contribution Guidelines</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="get-involved/index.html">Get Involved</a><input aria-label="Toggle navigation of Get Involved" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="get-involved/Community-Meetings.html">Community Meetings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-involved/workshops-and-presentations.html">Workshops and Presentations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="faq/index.html">FAQ</a><input aria-label="Toggle navigation of FAQ" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -680,6 +681,15 @@
 </li>
         </ul></li>
         <li>
+    --emptylist-for-multivalued-slots
+
+        <ul>
+          <li><a href="generators/pydantic.html#cmdoption-gen-pydantic-emptylist-for-multivalued-slots">gen-pydantic command line option</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-pydantic-emptylist-for-multivalued-slots">linkml-generate-(full)-pydantic command line option</a>
+</li>
+        </ul></li>
+        <li>
     --endpoint-url
 
         <ul>
@@ -774,6 +784,15 @@
 
         <ul>
           <li><a href="cli/lint.html#cmdoption-linkml-lint-fix">linkml-lint command line option</a>, <a href="schemas/linter.html#cmdoption-linkml-lint-fix">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    --fix-multivalue-containers
+
+        <ul>
+          <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-fix-multivalue-containers">gen-jsonld-context command line option</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-fix-multivalue-containers">linkml-generate-(full)-jsonld-context command line option</a>
 </li>
         </ul></li>
         <li>
@@ -2131,6 +2150,15 @@
 </li>
         </ul></li>
         <li>
+    --no-fix-multivalue-containers
+
+        <ul>
+          <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-fix-multivalue-containers">gen-jsonld-context command line option</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-fix-multivalue-containers">linkml-generate-(full)-jsonld-context command line option</a>
+</li>
+        </ul></li>
+        <li>
     --no-flatprefixes
 
         <ul>
@@ -2975,6 +3003,10 @@
 
         <ul>
           <li><a href="generators/java.html#cmdoption-gen-java-package">gen-java command line option</a>
+</li>
+          <li><a href="generators/pandera.html#cmdoption-gen-pandera-package">gen-pandera command line option</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-gen-pandera-package">linkml-generate-(full)-gen-pandera command line option</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-java-package">linkml-generate-(full)-java command line option</a>
 </li>
@@ -5472,6 +5504,14 @@
           <li><a href="code/metamodel.html#linkml_runtime.linkml_model.meta.SchemaDefinition.emit_prefixes">(linkml_runtime.linkml_model.meta.SchemaDefinition attribute)</a>
 </li>
         </ul></li>
+        <li><a href="generators/pydantic.html#linkml.generators.pydanticgen.PydanticGenerator.empty_list_for_multivalued_slots">empty_list_for_multivalued_slots (linkml.generators.pydanticgen.PydanticGenerator attribute)</a>
+
+        <ul>
+          <li><a href="generators/pydantic.html#linkml.generators.pydanticgen.template.PydanticAttribute.empty_list_for_multivalued_slots">(linkml.generators.pydanticgen.template.PydanticAttribute attribute)</a>
+</li>
+          <li><a href="generators/pydantic.html#linkml.generators.pydanticgen.template.PydanticBaseModel.empty_list_for_multivalued_slots">(linkml.generators.pydanticgen.template.PydanticBaseModel attribute)</a>
+</li>
+        </ul></li>
         <li><a href="code/utils.html#linkml.utils.schemasynopsis.empty_references">empty_references() (in module linkml.utils.schemasynopsis)</a>
 </li>
         <li><a href="code/utils.html#linkml.utils.generator.Generator.end_class">end_class() (linkml.utils.generator.Generator method)</a>
@@ -6116,6 +6156,8 @@
 </li>
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-emit-frame">--emit-frame</a>
 </li>
+          <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-fix-multivalue-containers">--fix-multivalue-containers</a>
+</li>
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-flatprefixes">--flatprefixes</a>
 </li>
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-f">--format</a>
@@ -6135,6 +6177,8 @@
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-embed-context-in-frame">--no-embed-context-in-frame</a>
 </li>
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-emit-frame">--no-emit-frame</a>
+</li>
+          <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-fix-multivalue-containers">--no-fix-multivalue-containers</a>
 </li>
           <li><a href="generators/jsonld-context.html#cmdoption-gen-jsonld-context-flatprefixes">--no-flatprefixes</a>
 </li>
@@ -6386,6 +6430,8 @@
         <ul>
           <li><a href="generators/pandera.html#cmdoption-gen-pandera-generator-class">--generator-class</a>
 </li>
+          <li><a href="generators/pandera.html#cmdoption-gen-pandera-package">--package</a>
+</li>
           <li><a href="generators/pandera.html#cmdoption-gen-pandera-template-file">--template-file</a>
 </li>
           <li><a href="generators/pandera.html#cmdoption-gen-pandera-template-path">--template-path</a>
@@ -6531,6 +6577,8 @@
           <li><a href="generators/pydantic.html#cmdoption-gen-pydantic-array-representations">--array-representations</a>
 </li>
           <li><a href="generators/pydantic.html#cmdoption-gen-pydantic-black">--black</a>
+</li>
+          <li><a href="generators/pydantic.html#cmdoption-gen-pydantic-emptylist-for-multivalued-slots">--emptylist-for-multivalued-slots</a>
 </li>
           <li><a href="generators/pydantic.html#cmdoption-gen-pydantic-extra-fields">--extra-fields</a>
 </li>
@@ -7985,6 +8033,8 @@
         <ul>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-gen-pandera-generator-class">--generator-class</a>
 </li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-gen-pandera-package">--package</a>
+</li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-gen-pandera-template-file">--template-file</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-gen-pandera-template-path">--template-path</a>
@@ -8355,6 +8405,8 @@
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-emit-frame">--emit-frame</a>
 </li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-fix-multivalue-containers">--fix-multivalue-containers</a>
+</li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-flatprefixes">--flatprefixes</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-f">--format</a>
@@ -8374,6 +8426,8 @@
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-embed-context-in-frame">--no-embed-context-in-frame</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-emit-frame">--no-emit-frame</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-fix-multivalue-containers">--no-fix-multivalue-containers</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-jsonld-context-flatprefixes">--no-flatprefixes</a>
 </li>
@@ -8853,6 +8907,8 @@
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-pydantic-array-representations">--array-representations</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-pydantic-black">--black</a>
+</li>
+          <li><a href="cli/generate.html#cmdoption-linkml-generate-full-pydantic-emptylist-for-multivalued-slots">--emptylist-for-multivalued-slots</a>
 </li>
           <li><a href="cli/generate.html#cmdoption-linkml-generate-full-pydantic-extra-fields">--extra-fields</a>
 </li>
