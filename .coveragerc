@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = linkml
+source = packages/linkml/src/linkml
 
 [report]
 exclude_lines =
