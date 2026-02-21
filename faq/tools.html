@@ -258,10 +258,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../generators/shacl.html">SHACL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/owl.html">OWL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/yarrrml.html">YARRRML</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generators/markdown.html">Markdown</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/docgen.html">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/erdiagram.html">ER Diagrams</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generators/yuml.html">YUML</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/plantumlgen.html">PlantUML Diagram Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/project-generator.html">Project Generator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../generators/python.html">Python</a></li>
@@ -288,7 +286,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../howtos/index.html">How-to Guides</a><input aria-label="Toggle navigation of How-to Guides" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../howtos/linkml-project-cookiecutter.html">LinkML Project Cookiecutter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howtos/linkml-project-copier.html">LinkML Project Copier Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../howtos/collaborative-development.html">How to run a collaborative data modeling project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../howtos/recognize-structural-forms.html">How to recognize and work with different structural forms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../howtos/yq-for-schemas.html">Using yq for querying and manipulating schemas</a></li>
@@ -453,9 +451,9 @@ schema class in the metamodel)</p>
 <p>For small schemas with limited inheritance, it should be possible to mentally picture the structure just by examining the source YAML. For larger schemas, with deep inheritance, it can help to have some kind of hierarchical browsing tool.</p>
 <p>There are a few strategies:</p>
 <ul class="simple">
-<li><p>Use <a class="reference external" href="https://linkml.io/linkml/generators/markdown">gen-doc</a> to make markdown that can be viewed using mkdocs</p>
+<li><p>Use <a class="reference external" href="https://linkml.io/linkml/generators/docgen">gen-doc</a> to make markdown that can be viewed using mkdocs</p>
 <ul>
-<li><p>note you get this “for free” if you set up your project using the LinkML cookiecutter</p></li>
+<li><p>note you get this “for free” if you set up your project using the LinkML project copier template</p></li>
 </ul>
 </li>
 <li><p>Use <a class="reference external" href="https://linkml.io/linkml/generators/owl">gen-owl</a> to make an OWL ontology, which can be browsed:</p>
@@ -572,7 +570,7 @@ LinkML as a schema language.</p>
 <section id="can-i-generate-a-website-from-a-linkml-schema">
 <h2>Can I generate a website from a LinkML schema<a class="headerlink" href="#can-i-generate-a-website-from-a-linkml-schema" title="Link to this heading">¶</a></h2>
 <p>Yes!</p>
-<p>See the <a class="reference external" href="https://linkml.io/linkml/generators/markdown">markdown generator</a> for details.</p>
+<p>See the <a class="reference external" href="https://linkml.io/linkml/generators/docgen">markdown generator</a> for details.</p>
 <p>If you run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span><span class="o">-</span><span class="n">doc</span> <span class="o">-</span><span class="n">d</span> <span class="n">docs</span> <span class="n">personinfo</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
@@ -612,13 +610,12 @@ if you are incorporating LinkML into a software project that uses <a class="refe
 </section>
 <section id="can-i-customize-the-markdown-generation-for-my-schema-site">
 <h2>Can I customize the Markdown generation for my schema site?<a class="headerlink" href="#can-i-customize-the-markdown-generation-for-my-schema-site" title="Link to this heading">¶</a></h2>
-<p>For some purposes, the generic schema documentation provided by <code class="docutils literal notranslate"><span class="pre">gen-markdown</span></code> may look too… generic.</p>
 <p>You can customize markdown generation using your own templates. This requires a basic understanding of Jinja2 templates.</p>
 <p>The protocol is:</p>
 <ol class="arabic simple">
 <li><p>copy the jinja templates from <a class="reference external" href="https://github.com/linkml/linkml/tree/main/packages/linkml/src/linkml/generators/docgen">docgen</a> to your own repo in a folder <code class="docutils literal notranslate"><span class="pre">templates</span></code></p></li>
 <li><p>customize these templates</p></li>
-<li><p>run <code class="docutils literal notranslate"><span class="pre">gen-docs</span> <span class="pre">--template-directory</span> <span class="pre">templates</span> <span class="pre">-d</span> <span class="pre">docs</span> <span class="pre">my_schema.yaml</span></code></p></li>
+<li><p>run <code class="docutils literal notranslate"><span class="pre">gen-doc</span> <span class="pre">--template-directory</span> <span class="pre">templates</span> <span class="pre">-d</span> <span class="pre">docs</span> <span class="pre">my_schema.yaml</span></code></p></li>
 <li><p>run <code class="docutils literal notranslate"><span class="pre">mkdocs</span> <span class="pre">serve</span></code> to test locally</p></li>
 <li><p>iterate until they look how you want, then deploy (e.g. <code class="docutils literal notranslate"><span class="pre">mkdocs</span> <span class="pre">gh-deploy</span></code>)</p></li>
 </ol>
