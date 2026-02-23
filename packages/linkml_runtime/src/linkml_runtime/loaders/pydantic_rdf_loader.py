@@ -462,11 +462,12 @@ class PydanticRDFLoader(Loader):
         return self.load(source, target_class, fmt=fmt, prefix_map=prefix_map)
 
     def _handle_multilingual_strings(self, model_data: dict[str, Any], target_class: type[BaseModel]) -> None:
-        """
-        Handle multilingual string fields by selecting preferred language.
+        """Handle multilingual string fields by selecting preferred language.
 
-        For fields that have multiple values in different languages, select the value
-        in the most preferred language based on language preferences.
+        Applies to both scalar string fields (``str``, ``Optional[str]``) and
+        list-of-string fields (``list[str]``, ``Optional[list[str]]``).
+        Language-tagged tuples ``(text, lang)`` are resolved via
+        ``preferred_languages``.
         """
         import typing
 
@@ -475,39 +476,41 @@ class PydanticRDFLoader(Loader):
                 continue
 
             value = model_data[field_name]
-
-            # Check if this is a string field that got multiple values (multilingual)
             field_type = field_info.annotation
-            import typing
 
-            # Only process single-value string fields, not list fields
             origin = typing.get_origin(field_type)
             args = typing.get_args(field_type)
 
-            is_single_string_field = False
-            if field_type is str:
-                is_single_string_field = True
-            elif origin is typing.Union and args:
-                # Handle Optional[str] case
+            # Detect the "inner" type, unwrapping Optional[...]
+            inner_type = field_type
+            if origin is typing.Union and args:
                 non_none_args = [arg for arg in args if arg is not type(None)]
-                if len(non_none_args) == 1 and non_none_args[0] is str:
-                    is_single_string_field = True
+                if len(non_none_args) == 1:
+                    inner_type = non_none_args[0]
 
-            if not is_single_string_field:
-                continue
+            inner_origin = typing.get_origin(inner_type)
+            inner_args = typing.get_args(inner_type)
 
-            # Single language-tagged tuple: ('text', 'en') → 'text'
-            if isinstance(value, tuple) and len(value) == 2:
-                model_data[field_name] = value[0]
-                logger.debug(f"Unwrapped language-tagged value for {field_name}: lang={value[1]}")
-            # List of values — select preferred language
-            elif isinstance(value, list) and len(value) > 1:
-                selected_value = self._select_preferred_language_from_tagged_literals(value)
-                model_data[field_name] = selected_value
-                logger.debug(f"Selected '{selected_value}' from {len(value)} multilingual values for {field_name}")
-            # List with single language-tagged tuple
-            elif isinstance(value, list) and len(value) == 1 and isinstance(value[0], tuple):
-                model_data[field_name] = value[0][0]
+            # Case 1: scalar string field (str / Optional[str])
+            if inner_type is str:
+                if isinstance(value, tuple) and len(value) == 2:
+                    model_data[field_name] = value[0]
+                elif isinstance(value, list) and len(value) > 1:
+                    model_data[field_name] = self._select_preferred_language_from_tagged_literals(value)
+                elif isinstance(value, list) and len(value) == 1 and isinstance(value[0], tuple):
+                    model_data[field_name] = value[0][0]
+
+            # Case 2: list-of-string field (list[str] / Optional[list[str]])
+            elif inner_origin is list and inner_args and inner_args[0] is str:
+                if isinstance(value, list) and value and isinstance(value[0], tuple):
+                    # All items are language-tagged tuples — select preferred language
+                    model_data[field_name] = [self._select_preferred_language_from_tagged_literals(value)]
+                elif isinstance(value, list):
+                    # Unwrap any stray tuples in the list
+                    model_data[field_name] = [
+                        v[0] if isinstance(v, tuple) and len(v) == 2 else str(v)
+                        for v in value
+                    ]
 
     def _select_preferred_language_from_tagged_literals(self, values: list[Any]) -> str:
         """
