@@ -483,11 +483,21 @@ class PydanticRDFLoader(Loader):
                 if len(non_none_args) == 1 and non_none_args[0] is str:
                     is_single_string_field = True
 
-            # If it's a single string field with list of values, apply language preference
-            if is_single_string_field and isinstance(value, list) and len(value) > 1:
+            if not is_single_string_field:
+                continue
+
+            # Single language-tagged tuple: ('text', 'en') → 'text'
+            if isinstance(value, tuple) and len(value) == 2:
+                model_data[field_name] = value[0]
+                logger.debug(f"Unwrapped language-tagged value for {field_name}: lang={value[1]}")
+            # List of values — select preferred language
+            elif isinstance(value, list) and len(value) > 1:
                 selected_value = self._select_preferred_language_from_tagged_literals(value)
                 model_data[field_name] = selected_value
                 logger.debug(f"Selected '{selected_value}' from {len(value)} multilingual values for {field_name}")
+            # List with single language-tagged tuple
+            elif isinstance(value, list) and len(value) == 1 and isinstance(value[0], tuple):
+                model_data[field_name] = value[0][0]
 
     def _select_preferred_language_from_tagged_literals(self, values: list[Any]) -> str:
         """
