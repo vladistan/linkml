@@ -116,25 +116,35 @@ class PydanticRDFLoader(Loader):
     def _find_root_subject(
         self, graph: Graph, target_class: type[BaseModel], global_meta: dict[str, Any], prefixes: dict[str, str]
     ) -> URIRef:
-        """Find the root subject in the graph for the target class"""
-        # Get class metadata
+        """Find the root subject in the graph for the target class.
+
+        Looks for a subject whose rdf:type matches the class URI from metadata.
+        When the model has no explicit class_uri, constructs a fallback from
+        ``from_schema#ClassName`` (matching the convention used by LinkML
+        codegen and schema_utils.get_class_uri).
+        """
         class_meta = self._get_class_metadata(target_class)
         class_uri = class_meta.get("class_uri")
 
+        # Build candidate type URIs to search for
+        candidate_uris: list[str] = []
         if class_uri:
-            # Expand CURIE to full URI
-            expanded_class_uri = self._expand_curie(class_uri, prefixes)
+            candidate_uris.append(self._expand_curie(class_uri, prefixes))
 
-            # Find subjects with this type
-            for subject in graph.subjects(RDF.type, URIRef(expanded_class_uri)):
+        # Fallback: from_schema#ClassName (same logic as get_class_uri)
+        from_schema = class_meta.get("from_schema", global_meta.get("default_range", ""))
+        if from_schema:
+            candidate_uris.append(f"{from_schema}#{target_class.__name__}")
+
+        for uri in candidate_uris:
+            for subject in graph.subjects(RDF.type, URIRef(uri)):
                 return subject
 
-        # Fallback: return first subject
+        # Last resort: first non-blank subject
         for subject in graph.subjects():
             if not isinstance(subject, BNode):
                 return subject
 
-        # Last resort: return any subject
         for subject in graph.subjects():
             return subject
 
@@ -503,6 +513,11 @@ class PydanticRDFLoader(Loader):
         """
         Select preferred language from a list that may contain language-tagged literals.
 
+        Real-world RDF data often mixes language-tagged literals (e.g. "Pflanze"@de)
+        with untagged literals (e.g. "Grass").  Untagged literals are commonly the
+        default/English value, so they should be preferred over non-matching tagged
+        values.
+
         Args:
             values: List that may contain strings or (string, language) tuples
 
@@ -510,40 +525,30 @@ class PydanticRDFLoader(Loader):
             Selected string value based on language preference
         """
         # Separate language-tagged and non-tagged values
-        tagged_values = []
-        non_tagged_values = []
+        tagged_values: list[tuple[str, str]] = []
+        non_tagged_values: list[str] = []
 
         for value in values:
             if isinstance(value, tuple) and len(value) == 2:
-                # Language-tagged literal: (text, language_code)
-                text, lang_code = value
-                tagged_values.append((text, lang_code))
+                tagged_values.append((value[0], value[1]))
             else:
-                # Regular string without language tag
-                non_tagged_values.append(value)
+                non_tagged_values.append(str(value))
 
-        # If we have language-tagged values, use language preference
-        if tagged_values:
-            # Try each preferred language in order
-            for preferred_lang in self.preferred_languages:
-                for text, lang_code in tagged_values:
-                    if lang_code == preferred_lang:
-                        return text
-
-            # If no preferred language found, fall back to English if available
+        # 1. Try each preferred language in tagged values
+        for preferred_lang in self.preferred_languages:
             for text, lang_code in tagged_values:
-                if lang_code == "en":
+                if lang_code == preferred_lang:
                     return text
 
-            # If no English, use first language alphabetically
-            tagged_values.sort(key=lambda x: x[1])  # Sort by language code
-            return tagged_values[0][0]
-
-        # If no language-tagged values, fall back to original logic
+        # 2. Fall back to non-tagged values (often the default/English text)
         if non_tagged_values:
             return self._select_preferred_language(non_tagged_values)
 
-        # Fallback
+        # 3. Last resort: first tagged value alphabetically by language
+        if tagged_values:
+            tagged_values.sort(key=lambda x: x[1])
+            return tagged_values[0][0]
+
         return str(values[0]) if values else ""
 
     def _select_preferred_language(self, values: list[str]) -> str:
