@@ -507,10 +507,7 @@ class PydanticRDFLoader(Loader):
                     model_data[field_name] = [self._select_preferred_language_from_tagged_literals(value)]
                 elif isinstance(value, list):
                     # Unwrap any stray tuples in the list
-                    model_data[field_name] = [
-                        v[0] if isinstance(v, tuple) and len(v) == 2 else str(v)
-                        for v in value
-                    ]
+                    model_data[field_name] = [v[0] if isinstance(v, tuple) and len(v) == 2 else str(v) for v in value]
 
     def _select_preferred_language_from_tagged_literals(self, values: list[Any]) -> str:
         """
