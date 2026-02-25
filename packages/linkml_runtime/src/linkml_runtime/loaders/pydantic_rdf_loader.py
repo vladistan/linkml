@@ -355,8 +355,17 @@ class PydanticRDFLoader(Loader):
     def _get_field_target_class(
         self, model_class: type[BaseModel], field_name: str, global_meta: dict[str, Any]
     ) -> type[BaseModel] | None:
-        """Get the target class for a field if it's a complex object"""
+        """Get the target class for a field if it's a complex object.
+
+        Uses the Python type annotation as the source of truth.  When the
+        annotation resolves to a primitive type (``str``, ``int``, …) we
+        return ``None`` immediately — the metadata ``range`` is not used as a
+        fallback in that case because the code generator deliberately chose a
+        primitive type (the field is not inlined).
+        """
         import typing
+        from datetime import date, datetime, time
+        from decimal import Decimal
 
         field_info = model_class.model_fields.get(field_name)
         if not field_info:
@@ -392,6 +401,22 @@ class PydanticRDFLoader(Loader):
         # Check if it's a direct BaseModel subclass (no Optional/List wrapper)
         if isinstance(field_type, type) and issubclass(field_type, BaseModel):
             return field_type
+
+        # If the annotation resolved to a known primitive type, trust it and
+        # do NOT fall through to the metadata range lookup.  The code
+        # generator uses str for non-inlined references intentionally.
+        _primitive_types = {str, int, float, bool, bytes, date, datetime, time, Decimal}
+        unwrapped = field_type
+        if typing.get_origin(unwrapped) is typing.Union:
+            non_none = [a for a in typing.get_args(unwrapped) if a is not type(None)]
+            if len(non_none) == 1:
+                unwrapped = non_none[0]
+        if typing.get_origin(unwrapped) is list:
+            inner = typing.get_args(unwrapped)
+            if inner:
+                unwrapped = inner[0]
+        if unwrapped in _primitive_types:
+            return None
 
         # Fallback to metadata approach
         field_meta = self._get_field_metadata(field_info)
