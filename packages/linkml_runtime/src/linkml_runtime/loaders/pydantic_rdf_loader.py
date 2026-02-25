@@ -6,8 +6,14 @@ using only the embedded linkml_meta without requiring a SchemaView.
 """
 
 import logging
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any, TextIO, Union
+
+# Sentinel returned by _convert_object_value when a URI cannot be resolved to
+# a model instance and no lazy factory is available.  The caller skips adding
+# this value to model_data, preventing ValidationError on unresolved refs.
+_SKIP: object = object()
 
 from hbreader import FileInfo
 from pydantic import BaseModel
@@ -33,14 +39,30 @@ class PydanticRDFLoader(Loader):
     - Complex object instantiation from URI references
     """
 
-    def __init__(self, preferred_languages: list[str] | None = None):
+    def __init__(
+        self,
+        preferred_languages: list[str] | None = None,
+        *,
+        identity_map: Any = None,
+        lazy_loader_factory: Callable[[str, type[BaseModel]], BaseModel] | None = None,
+    ):
         """
         Initialize PydanticRDFLoader with enhanced capabilities.
 
         Args:
             preferred_languages: Language preference order (e.g., ['en', 'ja', 'de'])
+            identity_map: Optional identity map for object deduplication and cycle
+                detection. Must support ``.get(type, uri)`` and ``.put(type, uri, instance)``.
+                If not provided, an internal dict is used for per-load cycle detection.
+            lazy_loader_factory: Optional factory ``(full_uri, target_type) -> BaseModel``
+                called when a URIRef has no ``rdf:type`` in the current graph but the
+                field expects a complex type.  The factory returns a lazy proxy that
+                loads on first field access.  When ``None``, such URIs are silently
+                skipped (field omitted from model_data).
         """
         self.preferred_languages = preferred_languages or ["en"]
+        self._identity_map = identity_map
+        self._lazy_loader_factory = lazy_loader_factory
 
     def load(
         self,
@@ -48,6 +70,8 @@ class PydanticRDFLoader(Loader):
         target_class: type[BaseModel],
         fmt: str = "turtle",
         prefix_map: dict[str, str] | None = None,
+        *,
+        root_subject: str | None = None,
     ) -> BaseModel:
         """
         Load RDF data into a Pydantic model instance
@@ -56,6 +80,10 @@ class PydanticRDFLoader(Loader):
         :param target_class: Target Pydantic model class
         :param fmt: RDF format if source is string/file
         :param prefix_map: Optional prefix mappings
+        :param root_subject: Optional URI string of the root subject to load.
+            When provided, ``_find_root_subject`` is skipped and this URI is used
+            directly.  Required when the graph contains multiple subjects with the
+            same ``rdf:type`` as ``target_class`` (e.g. depth-1 graph assembly).
         :return: Pydantic model instance
         """
         # Parse RDF if needed
@@ -94,11 +122,21 @@ class PydanticRDFLoader(Loader):
             for prefix_info in global_meta["prefixes"].values():
                 prefixes[prefix_info["prefix_prefix"]] = prefix_info["prefix_reference"]
 
-        # Find the root subject
-        root_subject = self._find_root_subject(graph, target_class, global_meta, prefixes)
+        # Resolve the root subject: use caller-provided URI when available so
+        # that multi-subject graphs (depth-1 assembly) always start from the
+        # correct node rather than a non-deterministic first match.
+        if root_subject is not None:
+            root_subject_ref: URIRef = URIRef(root_subject)
+        else:
+            root_subject_ref = self._find_root_subject(graph, target_class, global_meta, prefixes)
+
+        # Per-load dict acts as a secondary cache when no external identity_map is
+        # provided.  Two-phase shell pre-registration (in _convert_subject_to_model)
+        # handles circular references without a separate processing/visited set.
+        load_cache: dict[tuple[str, str], BaseModel] = {}
 
         # Convert RDF to Pydantic model
-        return self._convert_subject_to_model(graph, root_subject, target_class, global_meta, prefixes)
+        return self._convert_subject_to_model(graph, root_subject_ref, target_class, global_meta, prefixes, load_cache)
 
     def _extract_global_metadata(self, model_class: type[BaseModel]) -> dict[str, Any]:
         """Extract global metadata from the model class module"""
@@ -173,46 +211,75 @@ class PydanticRDFLoader(Loader):
         target_class: type[BaseModel],
         global_meta: dict[str, Any],
         prefixes: dict[str, str],
+        load_cache: dict[tuple[str, str], BaseModel] | None = None,
     ) -> BaseModel:
-        """Convert an RDF subject to a Pydantic model instance"""
-        # Start with the subject URI as ID if it's not a blank node
-        model_data = {}
-        if not isinstance(subject, BNode):
-            # Extract ID from URI
-            subject_str = str(subject)
-            # Try to convert back to CURIE if possible
+        """Convert an RDF subject to a Pydantic model instance.
+
+        Two-phase construction: a shell is pre-registered in the cache before
+        predicates are processed so that circular references (A→B→A) find the
+        shell rather than recursing infinitely.  After the real instance is built
+        its fields are copied in-place to the shell, preserving object identity.
+        """
+        subject_str = str(subject) if not isinstance(subject, BNode) else None
+
+        # Check cache — may return a pre-registered shell (circular ref) or a
+        # fully-built instance from an earlier load.
+        if subject_str:
+            cached = self._lookup_cache(target_class, subject_str, load_cache)
+            if cached is not None:
+                return cached
+
+        # Phase 1: pre-register a shell so recursive calls find it in cache.
+        shell: BaseModel | None = None
+        if subject_str:
+            id_curie = self._uri_to_curie(subject_str, prefixes)
+            shell = target_class.model_construct(id=id_curie)
+            self._store_cache(target_class, subject_str, shell, load_cache)
+
+        # Build model_data from RDF predicates.
+        model_data: dict[str, Any] = {}
+        if subject_str:
             model_data["id"] = self._uri_to_curie(subject_str, prefixes)
 
-        # Process all properties
         for predicate, obj in graph.predicate_objects(subject):
-            # Skip rdf:type
             if predicate == RDF.type:
                 continue
 
-            # Find corresponding field in model
             field_name = self._find_field_for_predicate(target_class, predicate, prefixes)
             if not field_name:
                 continue
 
-            # Convert object value
-            field_value = self._convert_object_value(graph, obj, target_class, field_name, global_meta, prefixes)
+            field_value = self._convert_object_value(
+                graph, obj, target_class, field_name, global_meta, prefixes, load_cache
+            )
 
-            # Handle multivalued fields
+            if field_value is _SKIP:
+                continue
+
             if field_name in model_data:
-                # Convert to list if not already
                 if not isinstance(model_data[field_name], list):
                     model_data[field_name] = [model_data[field_name]]
                 model_data[field_name].append(field_value)
             else:
                 model_data[field_name] = field_value
 
-        # Before creating model instance, apply enhancements
-        # Order matters: multilingual processing first, then list wrapping
         self._handle_multilingual_strings(model_data, target_class)
         self._wrap_list_fields(model_data, target_class)
 
-        # Create model instance
-        return target_class(**model_data)
+        # Phase 2: build validated instance.
+        instance = target_class(**model_data)
+
+        # Copy fields from the validated instance into the shell in-place so
+        # any references captured during Phase 1 processing see full data.
+        if shell is not None:
+            for key, value in instance.__dict__.items():
+                object.__setattr__(shell, key, value)
+            if hasattr(instance, "__pydantic_fields_set__"):
+                object.__setattr__(shell, "__pydantic_fields_set__", instance.__pydantic_fields_set__)
+            self._store_cache(target_class, subject_str, shell, load_cache)
+            return shell
+
+        return instance
 
     def _wrap_list_fields(self, model_data: dict[str, Any], target_class: type[BaseModel]) -> None:
         """Wrap single values in lists for fields that expect lists"""
@@ -251,6 +318,36 @@ class PydanticRDFLoader(Loader):
             if uri.startswith(base_uri):
                 return f"{prefix}:{uri[len(base_uri) :]}"
         return uri
+
+    def _lookup_cache(
+        self,
+        target_class: type[BaseModel],
+        uri: str,
+        load_cache: dict[tuple[str, str], BaseModel] | None = None,
+    ) -> BaseModel | None:
+        """Check external identity map first, then per-load cache."""
+        if self._identity_map is not None:
+            hit = self._identity_map.get(target_class, uri)
+            if hit is not None:
+                return hit
+        if load_cache is not None:
+            key = (target_class.__name__, uri)
+            if key in load_cache:
+                return load_cache[key]
+        return None
+
+    def _store_cache(
+        self,
+        target_class: type[BaseModel],
+        uri: str,
+        instance: BaseModel,
+        load_cache: dict[tuple[str, str], BaseModel] | None = None,
+    ) -> None:
+        """Store in external identity map and per-load cache."""
+        if self._identity_map is not None:
+            self._identity_map.put(target_class, uri, instance)
+        if load_cache is not None:
+            load_cache[(target_class.__name__, uri)] = instance
 
     def _find_field_for_predicate(
         self, model_class: type[BaseModel], predicate: URIRef, prefixes: dict[str, str]
@@ -302,10 +399,16 @@ class PydanticRDFLoader(Loader):
         field_name: str,
         global_meta: dict[str, Any],
         prefixes: dict[str, str],
+        load_cache: dict[tuple[str, str], BaseModel] | None = None,
     ) -> Any:
-        """Convert an RDF object to appropriate Python value"""
+        """Convert an RDF object to appropriate Python value.
+
+        Returns the module-level ``_SKIP`` sentinel when a URIRef resolves to a
+        complex field type but its triples are absent from the current graph and
+        no ``lazy_loader_factory`` is configured.  Callers must check for this
+        sentinel and omit the field from model_data.
+        """
         if isinstance(obj, Literal):
-            # Handle typed literals
             if obj.datatype:
                 if obj.datatype == URIRef("http://www.w3.org/2001/XMLSchema#integer"):
                     return int(obj)
@@ -314,40 +417,53 @@ class PydanticRDFLoader(Loader):
                 elif obj.datatype == URIRef("http://www.w3.org/2001/XMLSchema#boolean"):
                     return str(obj).lower() in ("true", "1")
                 elif obj.datatype == URIRef("http://www.w3.org/2001/XMLSchema#date"):
-                    # Import here to avoid circular imports
                     from datetime import date
 
                     return date.fromisoformat(str(obj))
 
-            # Return string representation, preserving language tag info if present
             if obj.language:
-                # Store language-tagged literal as tuple for later processing
                 return (str(obj), obj.language)
             else:
                 return str(obj)
 
         elif isinstance(obj, URIRef):
-            # Could be a reference to another object or just a URI value
             obj_str = str(obj)
-
-            # Check if this is a complex object (has rdf:type)
             obj_types = list(graph.objects(obj, RDF.type))
+
             if obj_types:
-                # Try to find corresponding Pydantic class
+                # URIRef has rdf:type in the graph — convert to a model instance.
                 target_field_class = self._get_field_target_class(model_class, field_name, global_meta)
                 if target_field_class:
-                    return self._convert_subject_to_model(graph, obj, target_field_class, global_meta, prefixes)
+                    cached = self._lookup_cache(target_field_class, obj_str, load_cache)
+                    if cached is not None:
+                        return cached
+                    # Circular refs are broken by the pre-registered shell in
+                    # _convert_subject_to_model; no explicit processing set needed.
+                    return self._convert_subject_to_model(
+                        graph, obj, target_field_class, global_meta, prefixes, load_cache
+                    )
+            else:
+                # No rdf:type in graph for this URI.  If the field expects a
+                # complex type, return a lazy proxy (when factory is available)
+                # or _SKIP (so the caller omits the field rather than creating a
+                # ValidationError by returning a raw CURIE string).
+                target_field_class = self._get_field_target_class(model_class, field_name, global_meta)
+                if target_field_class:
+                    cached = self._lookup_cache(target_field_class, obj_str, load_cache)
+                    if cached is not None:
+                        return cached
+                    if self._lazy_loader_factory is not None:
+                        proxy = self._lazy_loader_factory(obj_str, target_field_class)
+                        self._store_cache(target_field_class, obj_str, proxy, load_cache)
+                        return proxy
+                    return _SKIP
 
-            # Return as CURIE or URI
             return self._uri_to_curie(obj_str, prefixes)
 
         elif isinstance(obj, BNode):
-            # Anonymous object - try to convert to nested model
             target_field_class = self._get_field_target_class(model_class, field_name, global_meta)
             if target_field_class:
-                return self._convert_subject_to_model(graph, obj, target_field_class, global_meta, prefixes)
-
-            # Fallback
+                return self._convert_subject_to_model(graph, obj, target_field_class, global_meta, prefixes, load_cache)
             return str(obj)
 
         return str(obj)
@@ -446,6 +562,8 @@ class PydanticRDFLoader(Loader):
         target_class: type[BaseModel],
         fmt: str = "turtle",
         prefix_map: dict[str, str] | None = None,
+        *,
+        root_subject: str | None = None,
     ) -> BaseModel:
         """
         Load RDF string into a Pydantic model instance
@@ -454,9 +572,12 @@ class PydanticRDFLoader(Loader):
         :param target_class: Target Pydantic model class
         :param fmt: RDF format
         :param prefix_map: Optional prefix mappings
+        :param root_subject: Optional URI string of the root subject to load.
+            Forwarded to ``load()``.  Use when the graph contains multiple
+            subjects with the same ``rdf:type`` as ``target_class``.
         :return: Pydantic model instance
         """
-        return self.load(source, target_class, fmt=fmt, prefix_map=prefix_map)
+        return self.load(source, target_class, fmt=fmt, prefix_map=prefix_map, root_subject=root_subject)
 
     def load_any(
         self,
