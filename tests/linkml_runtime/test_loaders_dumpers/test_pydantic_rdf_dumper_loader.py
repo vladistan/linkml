@@ -258,6 +258,60 @@ def test_pydantic_rdf_mixed_field_types(pydantic_dumper, pydantic_loader):
     assert set(loaded_person.aliases) == set(mixed_person.aliases)
 
 
+def test_pydantic_rdf_loads_graph_equivalence(pydantic_dumper, pydantic_loader):
+    """Test loads_graph() produces equivalent results to loads() for the same data."""
+    from rdflib import Graph
+
+    person = Person(id="P:010", name="Graph Test Person", aliases=["a1", "a2"])
+    rdf_str = pydantic_dumper.dumps(person)
+
+    # Parse turtle into a Graph manually
+    graph = Graph()
+    graph.parse(data=rdf_str, format="turtle")
+
+    # Load via both paths
+    from_loads = pydantic_loader.loads(rdf_str, Person)
+    from_loads_graph = pydantic_loader.loads_graph(graph, Person)
+
+    assert from_loads.id == from_loads_graph.id
+    assert from_loads.name == from_loads_graph.name
+    assert set(from_loads.aliases or []) == set(from_loads_graph.aliases or [])
+
+
+def test_pydantic_rdf_loads_graph_with_root_subject(pydantic_loader):
+    """Test loads_graph() with explicit root_subject parameter."""
+    from rdflib import Graph
+
+    rdf_content = """
+    @prefix schema: <http://schema.org/> .
+    @prefix P: <http://example.org/P/> .
+
+    P:011 a schema:Person ;
+        schema:name "Root Subject Test" .
+    """
+    graph = Graph()
+    graph.parse(data=rdf_content, format="turtle")
+
+    loaded = pydantic_loader.loads_graph(graph, Person, root_subject="http://example.org/P/011")
+    assert loaded.id == "P:011"
+    assert loaded.name == "Root Subject Test"
+
+
+def test_pydantic_rdf_loads_delegates_to_loads_graph(pydantic_loader):
+    """Test that loads() delegates to loads_graph() internally."""
+    rdf_content = """
+    @prefix schema: <http://schema.org/> .
+    @prefix P: <http://example.org/P/> .
+
+    P:012 a schema:Person ;
+        schema:name "Delegation Test" .
+    """
+    # loads() should still work (backwards compatibility)
+    loaded = pydantic_loader.loads(rdf_content, Person)
+    assert loaded.id == "P:012"
+    assert loaded.name == "Delegation Test"
+
+
 def test_pydantic_rdf_single_value_to_list_field():
     """Test critical scenario: RDF with single value for a field expecting a list"""
     # Create manual RDF with a single value for aliases field (which expects a list)

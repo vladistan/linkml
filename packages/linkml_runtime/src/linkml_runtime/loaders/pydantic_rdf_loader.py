@@ -556,6 +556,32 @@ class PydanticRDFLoader(Loader):
 
         return None
 
+    def loads_graph(
+        self,
+        graph: Graph,
+        target_class: type[BaseModel],
+        *,
+        prefix_map: dict[str, str] | None = None,
+        root_subject: str | None = None,
+    ) -> BaseModel:
+        """
+        Load a pre-parsed rdflib Graph into a Pydantic model instance.
+
+        Bypasses the turtle string parsing step, providing better performance
+        when you already have a Graph object (e.g., from CONSTRUCT queries
+        or subgraph extraction).
+
+        :param graph: Pre-parsed rdflib Graph
+        :param target_class: Target Pydantic model class
+        :param prefix_map: Optional prefix mappings
+        :param root_subject: Optional URI string of the root subject to load.
+            When provided, ``_find_root_subject`` is skipped and this URI is
+            used directly.  Required when the graph contains multiple subjects
+            with the same ``rdf:type`` as ``target_class``.
+        :return: Pydantic model instance
+        """
+        return self.load(graph, target_class, prefix_map=prefix_map, root_subject=root_subject)
+
     def loads(
         self,
         source: str,
@@ -566,18 +592,22 @@ class PydanticRDFLoader(Loader):
         root_subject: str | None = None,
     ) -> BaseModel:
         """
-        Load RDF string into a Pydantic model instance
+        Load RDF string into a Pydantic model instance.
+
+        Thin wrapper around :meth:`loads_graph` that parses the string first.
 
         :param source: RDF string content
         :param target_class: Target Pydantic model class
         :param fmt: RDF format
         :param prefix_map: Optional prefix mappings
         :param root_subject: Optional URI string of the root subject to load.
-            Forwarded to ``load()``.  Use when the graph contains multiple
-            subjects with the same ``rdf:type`` as ``target_class``.
+            Forwarded to ``loads_graph()``.  Use when the graph contains
+            multiple subjects with the same ``rdf:type`` as ``target_class``.
         :return: Pydantic model instance
         """
-        return self.load(source, target_class, fmt=fmt, prefix_map=prefix_map, root_subject=root_subject)
+        graph = Graph()
+        graph.parse(data=source, format=fmt)
+        return self.loads_graph(graph, target_class, prefix_map=prefix_map, root_subject=root_subject)
 
     def load_any(
         self,
