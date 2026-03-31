@@ -195,6 +195,9 @@ class ERDiagramGenerator(Generator):
     preserve_names: bool = False
     """If true, preserve LinkML element names (classes/slots) in diagram labels."""
 
+    exclude_slots: tuple[str, ...] = ()
+    """If non-empty, slots with these names are excluded from entity attributes."""
+
     def __post_init__(self):
         self.schemaview = SchemaView(self.schema)
         super().__post_init__()
@@ -471,6 +474,8 @@ class ERDiagramGenerator(Generator):
         :return:
         """
         if self.exclude_attributes:
+            return
+        if self.exclude_slots and slot.name in self.exclude_slots:
             return
         dt = slot.range
         if slot.multivalued:

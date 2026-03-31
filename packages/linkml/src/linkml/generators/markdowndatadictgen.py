@@ -352,6 +352,7 @@ class MarkdownDataDictGen(Generator):
     kroki_server: str | None = None
     diagram_dir: str | None = None
     pretty_format_svg: bool = False
+    erd_exclude_slots: tuple[str, ...] = ()
     _diagram_counter: int = 0
 
     schema_classes = set[ClassDefinition]
@@ -419,7 +420,12 @@ class MarkdownDataDictGen(Generator):
             items.extend(self._generate_component_erd_diagrams())
         else:
             # Original single ERD diagram
-            erd_gen = ERDiagramGenerator(self.schema_location, exclude_abstract_classes=True, exclude_attributes=False)
+            erd_gen = ERDiagramGenerator(
+                self.schema_location,
+                exclude_abstract_classes=True,
+                exclude_attributes=False,
+                exclude_slots=self.erd_exclude_slots,
+            )
             items.append(self.header(2, "ERD Diagram"))
             items.append(self._diagram_renderer.render(erd_gen.serialize(), diagram_name="erd_diagram"))
 
@@ -448,7 +454,10 @@ class MarkdownDataDictGen(Generator):
                     items.append(self.header(3, component_name))
 
                 erd_gen = ERDiagramGenerator(
-                    self.schema_location, exclude_abstract_classes=True, exclude_attributes=False
+                    self.schema_location,
+                    exclude_abstract_classes=True,
+                    exclude_attributes=False,
+                    exclude_slots=self.erd_exclude_slots,
                 )
                 component_diagram = erd_gen.serialize_classes(list(component), follow_references=False, max_hops=0)
 
@@ -1587,6 +1596,11 @@ def pad_heading(text: str) -> str:
     default=False,
     help="Pretty-format SVG files with proper HTML-style indentation (2 spaces). "
     "Makes SVGs more readable but increases file size.",
+)
+@click.option(
+    "--erd-exclude-slots",
+    multiple=True,
+    help="Slot names to exclude from ERD diagrams (can be repeated)",
 )
 @click.version_option(__version__, "-V", "--version")
 def cli(yamlfile, **kwargs):
